@@ -1,0 +1,10 @@
+--- export/src/fgetln.c	2008-07-12 10:33:10.000000000 +0200
++++ ../src/fgetln.c	2008-07-12 10:38:05.000000000 +0200
+@@ -34,6 +34,7 @@
+ #endif
+ 
+ #if !HAVE_FGETLN
++#include <config.h>
+ #include <stdlib.h>
+ #ifndef HAVE_NBTOOL_CONFIG_H
+ /* These headers are required, but included from nbtool_config.h */

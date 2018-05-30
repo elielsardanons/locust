@@ -1,0 +1,2872 @@
+2009-03-04 20:18  eliels
+
+	* main/sniffer.c: Also parse the ipv6 protocol when sniffing.
+
+2009-03-03 19:50  eliels
+
+	* main/route.c, main/socket.c: If we are unable to send a packet
+	  because we couldn't find a destination device for it,
+	  report it and give up.
+
+2009-03-03 19:36  eliels
+
+	* main/route.c: Fix an error when trying to find the ip and having
+	  support for ipv6.
+
+2009-03-03 18:51  eliels
+
+	* main/packet.c: Show an error message if someone try to pass to
+	  the injector register function a null pointer to the
+	  injector register function.
+
+2009-03-03 16:26  eliels
+
+	* main/ethernet.c, main/icmp.c: Fix the CRC checksum of the ICMP
+	  packet injector.
+	  Remove a debug message.
+
+2009-03-03 14:37  eliels
+
+	* main/icmp.c: Allow the user to modify the id and the seq of the
+	  icmp packet header.
+
+2009-03-02 22:08  eliels
+
+	* libs/libnet/Makefile.am, libs/libnet/Makefile.in,
+	  libs/libnet/aclocal.m4, libs/libnet/configure,
+	  libs/libnet/include/Makefile.in, libs/libnet/include/config.h.in,
+	  libs/libnet/include/libnet/Makefile.in,
+	  libs/libnet/sample/Makefile.in, libs/libnet/src/libnet_if_addr.c,
+	  libs/libnet/src/libnet_link_linux.c,
+	  libs/libnet/src/libnet_resolve.c: Fix some compile warnings and
+	  avoid compiling the sample code.
+
+2009-03-02 22:06  eliels
+
+	* libs/libnet/autom4te.cache: Remove autom4te.cache directory, not
+	  needed when building libnet.
+
+2009-03-02 21:40  eliels
+
+	* libs/libnet/include/libnet/libnet-functions.h,
+	  libs/libnet/sample/cdp.c, libs/libnet/sample/dot1x.c,
+	  libs/libnet/sample/ieee.c, libs/libnet/sample/tcp1.c,
+	  libs/libnet/sample/udp2.c, libs/libnet/src/libnet_build_gre.c,
+	  libs/libnet/src/libnet_build_ip.c, libs/libnet/src/libnet_cq.c,
+	  libs/libnet/src/libnet_if_addr.c, libs/libnet/src/libnet_init.c,
+	  libs/libnet/src/libnet_internal.c,
+	  libs/libnet/src/libnet_link_bpf.c,
+	  libs/libnet/src/libnet_port_list.c, libs/libnet/src/libnet_raw.c,
+	  libs/libnet/src/libnet_resolve.c: Fix some compiler warnings
+	  adding casting to libnet.
+
+2009-03-02 18:56  eliels
+
+	* main/packet.c: Check for null to avoid a crash.
+
+2009-03-02 18:13  eliels
+
+	* libs/libnet/include/libnet.h.in: Fix a compile warning.
+
+2009-03-02 17:38  eliels
+
+	* main/packet.c: Add an ethernet header to the received protocols,
+	  now we read in raw format the packet.
+
+2009-03-02 16:10  eliels
+
+	* Makefile.modules, configure, include/locust/packet.h,
+	  include/locust/socket.h, main/Makefile.am, main/Makefile.in,
+	  main/packet.c, main/sniffer.c, main/socket.c,
+	  modules/scanners/Makefile.in, modules/scanners/scanner_syn.c,
+	  modules/wordlists/Makefile.in: Start using libnet for sending
+	  packets and libpcap for receiving them.
+
+2009-03-02 11:45  eliels
+
+	* configure.ac, libs/libdb, libs/libsf, main/Makefile.am,
+	  main/Makefile.in: I didn't knew about the libsf copyright problem
+	  with nmap... removing it...
+	  Ref: http://marc.info/?l=nmap-dev&m=103675300922289&w=2
+
+2009-03-02 11:29  eliels
+
+	* libs/libsf/include/libsf.h.in, libs/libsf/sample/legerdemain.c,
+	  libs/libsf/src/libsf_init.c: Make possible to especify the
+	  fingerprint db when initializing the library.
+
+2009-03-02 10:47  eliels
+
+	* libs/libsf/Makefile.in, libs/libsf/acconfig.h,
+	  libs/libsf/aclocal.m4, libs/libsf/config.guess,
+	  libs/libsf/config.sub, libs/libsf/configure,
+	  libs/libsf/configure.in, libs/libsf/import/Makefile.in,
+	  libs/libsf/include/Makefile.in, libs/libsf/include/config.h.in,
+	  libs/libsf/man/Makefile.in, libs/libsf/sample/Makefile.in,
+	  libs/libsf/src/Makefile.am, libs/libsf/src/Makefile.in: Fix a
+	  compile error in MacOSX
+
+2009-03-02 04:05  eliels
+
+	* libs/libsf/Makefile.in, libs/libsf/configure,
+	  libs/libsf/configure.in, libs/libsf/import/Makefile.in,
+	  libs/libsf/include/Makefile.in, libs/libsf/man/Makefile.in,
+	  libs/libsf/sample/Makefile.in, libs/libsf/src/Makefile.in: Fix
+	  the configure script when compiling running it in macosx.
+
+2009-03-02 03:51  eliels
+
+	* configure, configure.ac, libs/libdb, libs/libdb/Makefile.inc,
+	  libs/libdb/PORT, libs/libdb/PORT/Makefile,
+	  libs/libdb/PORT/README, libs/libdb/PORT/aix.3.2,
+	  libs/libdb/PORT/aix.3.2/Makefile, libs/libdb/PORT/aix.3.2/clib,
+	  libs/libdb/PORT/aix.3.2/include,
+	  libs/libdb/PORT/aix.3.2/include/cdefs.h,
+	  libs/libdb/PORT/aix.3.2/include/compat.h,
+	  libs/libdb/PORT/aix.3.2/include/db.h,
+	  libs/libdb/PORT/aix.3.2/include/mpool.h,
+	  libs/libdb/PORT/aix.3.2/include/ndbm.h,
+	  libs/libdb/PORT/aix.3.2/include/queue.h,
+	  libs/libdb/PORT/aix.3.2/sys, libs/libdb/PORT/bsd.4.4,
+	  libs/libdb/PORT/bsd.4.4/Makefile, libs/libdb/PORT/bsd.4.4/clib,
+	  libs/libdb/PORT/bsd.4.4/include,
+	  libs/libdb/PORT/bsd.4.4/include/cdefs.h,
+	  libs/libdb/PORT/bsd.4.4/include/compat.h,
+	  libs/libdb/PORT/bsd.4.4/include/db.h,
+	  libs/libdb/PORT/bsd.4.4/include/mpool.h,
+	  libs/libdb/PORT/bsd.4.4/include/ndbm.h,
+	  libs/libdb/PORT/bsd.4.4/include/queue.h,
+	  libs/libdb/PORT/bsd.4.4/sys, libs/libdb/PORT/bsdi.1.0,
+	  libs/libdb/PORT/bsdi.1.0/Makefile,
+	  libs/libdb/PORT/bsdi.1.0/OTHER_PATCHES,
+	  libs/libdb/PORT/bsdi.1.0/clib, libs/libdb/PORT/bsdi.1.0/include,
+	  libs/libdb/PORT/bsdi.1.0/include/assert.h,
+	  libs/libdb/PORT/bsdi.1.0/include/cdefs.h,
+	  libs/libdb/PORT/bsdi.1.0/include/compat.h,
+	  libs/libdb/PORT/bsdi.1.0/include/db.h,
+	  libs/libdb/PORT/bsdi.1.0/include/mpool.h,
+	  libs/libdb/PORT/bsdi.1.0/include/ndbm.h,
+	  libs/libdb/PORT/bsdi.1.0/include/queue.h,
+	  libs/libdb/PORT/bsdi.1.0/local,
+	  libs/libdb/PORT/bsdi.1.0/local/local.h,
+	  libs/libdb/PORT/bsdi.1.0/local/makebuf.c,
+	  libs/libdb/PORT/bsdi.1.0/local/setvbuf.c,
+	  libs/libdb/PORT/bsdi.1.0/sys, libs/libdb/PORT/clib,
+	  libs/libdb/PORT/clib/memmove.c, libs/libdb/PORT/clib/mktemp.c,
+	  libs/libdb/PORT/clib/snprintf.c, libs/libdb/PORT/clib/strerror.c,
+	  libs/libdb/PORT/dgux.5.4, libs/libdb/PORT/dgux.5.4/Makefile,
+	  libs/libdb/PORT/dgux.5.4/clib, libs/libdb/PORT/dgux.5.4/include,
+	  libs/libdb/PORT/dgux.5.4/include/cdefs.h,
+	  libs/libdb/PORT/dgux.5.4/include/compat.h,
+	  libs/libdb/PORT/dgux.5.4/include/db.h,
+	  libs/libdb/PORT/dgux.5.4/include/mpool.h,
+	  libs/libdb/PORT/dgux.5.4/include/ndbm.h,
+	  libs/libdb/PORT/dgux.5.4/include/queue.h,
+	  libs/libdb/PORT/dgux.5.4/sys, libs/libdb/PORT/hpux.8.07,
+	  libs/libdb/PORT/hpux.9.01, libs/libdb/PORT/hpux.9.01/Makefile,
+	  libs/libdb/PORT/hpux.9.01/clib,
+	  libs/libdb/PORT/hpux.9.01/include,
+	  libs/libdb/PORT/hpux.9.01/include/cdefs.h,
+	  libs/libdb/PORT/hpux.9.01/include/compat.h,
+	  libs/libdb/PORT/hpux.9.01/include/db.h,
+	  libs/libdb/PORT/hpux.9.01/include/mpool.h,
+	  libs/libdb/PORT/hpux.9.01/include/ndbm.h,
+	  libs/libdb/PORT/hpux.9.01/include/queue.h,
+	  libs/libdb/PORT/hpux.9.01/local,
+	  libs/libdb/PORT/hpux.9.01/local/hp_siglist.c,
+	  libs/libdb/PORT/hpux.9.01/sys, libs/libdb/PORT/include,
+	  libs/libdb/PORT/include/cdefs.h,
+	  libs/libdb/PORT/include/compat.h, libs/libdb/PORT/include/db.h,
+	  libs/libdb/PORT/include/mpool.h, libs/libdb/PORT/include/ndbm.h,
+	  libs/libdb/PORT/include/queue.h, libs/libdb/PORT/irix.4.05F,
+	  libs/libdb/PORT/irix.4.05F/Makefile,
+	  libs/libdb/PORT/irix.4.05F/OTHER_PATCHES,
+	  libs/libdb/PORT/irix.4.05F/clib,
+	  libs/libdb/PORT/irix.4.05F/include,
+	  libs/libdb/PORT/irix.4.05F/include/cdefs.h,
+	  libs/libdb/PORT/irix.4.05F/include/compat.h,
+	  libs/libdb/PORT/irix.4.05F/include/db.h,
+	  libs/libdb/PORT/irix.4.05F/include/mpool.h,
+	  libs/libdb/PORT/irix.4.05F/include/ndbm.h,
+	  libs/libdb/PORT/irix.4.05F/include/queue.h,
+	  libs/libdb/PORT/irix.4.05F/sys, libs/libdb/PORT/linux,
+	  libs/libdb/PORT/linux/Makefile,
+	  libs/libdb/PORT/linux/OTHER_PATCHES, libs/libdb/PORT/linux/clib,
+	  libs/libdb/PORT/linux/include,
+	  libs/libdb/PORT/linux/include/compat.h,
+	  libs/libdb/PORT/linux/include/db.h,
+	  libs/libdb/PORT/linux/include/mpool.h,
+	  libs/libdb/PORT/linux/include/ndbm.h, libs/libdb/PORT/linux/sys,
+	  libs/libdb/PORT/osf.1.0.2, libs/libdb/PORT/osf.1.0.2/Makefile,
+	  libs/libdb/PORT/osf.1.0.2/clib,
+	  libs/libdb/PORT/osf.1.0.2/include,
+	  libs/libdb/PORT/osf.1.0.2/include/cdefs.h,
+	  libs/libdb/PORT/osf.1.0.2/include/compat.h,
+	  libs/libdb/PORT/osf.1.0.2/include/db.h,
+	  libs/libdb/PORT/osf.1.0.2/include/mpool.h,
+	  libs/libdb/PORT/osf.1.0.2/include/ndbm.h,
+	  libs/libdb/PORT/osf.1.0.2/include/queue.h,
+	  libs/libdb/PORT/osf.1.0.2/sys, libs/libdb/PORT/osf.1.3,
+	  libs/libdb/PORT/osf.2.0, libs/libdb/PORT/ptx.2.0,
+	  libs/libdb/PORT/ptx.2.0/Makefile,
+	  libs/libdb/PORT/ptx.2.0/OTHER_PATCHES,
+	  libs/libdb/PORT/ptx.2.0/clib, libs/libdb/PORT/ptx.2.0/include,
+	  libs/libdb/PORT/ptx.2.0/include/cdefs.h,
+	  libs/libdb/PORT/ptx.2.0/include/compat.h,
+	  libs/libdb/PORT/ptx.2.0/include/db.h,
+	  libs/libdb/PORT/ptx.2.0/include/mpool.h,
+	  libs/libdb/PORT/ptx.2.0/include/ndbm.h,
+	  libs/libdb/PORT/ptx.2.0/include/pathnames.h,
+	  libs/libdb/PORT/ptx.2.0/include/queue.h,
+	  libs/libdb/PORT/ptx.2.0/sys, libs/libdb/PORT/sinix.5.41,
+	  libs/libdb/PORT/sinix.5.41/Makefile,
+	  libs/libdb/PORT/sinix.5.41/clib,
+	  libs/libdb/PORT/sinix.5.41/include,
+	  libs/libdb/PORT/sinix.5.41/include/cdefs.h,
+	  libs/libdb/PORT/sinix.5.41/include/compat.h,
+	  libs/libdb/PORT/sinix.5.41/include/db.h,
+	  libs/libdb/PORT/sinix.5.41/include/mpool.h,
+	  libs/libdb/PORT/sinix.5.41/include/ndbm.h,
+	  libs/libdb/PORT/sinix.5.41/include/queue.h,
+	  libs/libdb/PORT/sinix.5.41/sys, libs/libdb/PORT/solaris.2.2,
+	  libs/libdb/PORT/sunos.4.1.1,
+	  libs/libdb/PORT/sunos.4.1.1/Makefile,
+	  libs/libdb/PORT/sunos.4.1.1/clib,
+	  libs/libdb/PORT/sunos.4.1.1/include,
+	  libs/libdb/PORT/sunos.4.1.1/include/cdefs.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/compat.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/db.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/mpool.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/ndbm.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/pathnames.h,
+	  libs/libdb/PORT/sunos.4.1.1/include/queue.h,
+	  libs/libdb/PORT/sunos.4.1.1/sys, libs/libdb/PORT/sunos.4.1.2,
+	  libs/libdb/PORT/sunos.4.1.3, libs/libdb/PORT/sunos.5.2,
+	  libs/libdb/PORT/sunos.5.2/Makefile,
+	  libs/libdb/PORT/sunos.5.2/clib,
+	  libs/libdb/PORT/sunos.5.2/include,
+	  libs/libdb/PORT/sunos.5.2/include/cdefs.h,
+	  libs/libdb/PORT/sunos.5.2/include/compat.h,
+	  libs/libdb/PORT/sunos.5.2/include/db.h,
+	  libs/libdb/PORT/sunos.5.2/include/mpool.h,
+	  libs/libdb/PORT/sunos.5.2/include/ndbm.h,
+	  libs/libdb/PORT/sunos.5.2/include/queue.h,
+	  libs/libdb/PORT/sunos.5.2/sys, libs/libdb/PORT/ultrix.4.2,
+	  libs/libdb/PORT/ultrix.4.2/Makefile,
+	  libs/libdb/PORT/ultrix.4.2/clib,
+	  libs/libdb/PORT/ultrix.4.2/include,
+	  libs/libdb/PORT/ultrix.4.2/include/cdefs.h,
+	  libs/libdb/PORT/ultrix.4.2/include/compat.h,
+	  libs/libdb/PORT/ultrix.4.2/include/db.h,
+	  libs/libdb/PORT/ultrix.4.2/include/mpool.h,
+	  libs/libdb/PORT/ultrix.4.2/include/ndbm.h,
+	  libs/libdb/PORT/ultrix.4.2/include/queue.h,
+	  libs/libdb/PORT/ultrix.4.2/sys, libs/libdb/PORT/ultrix.4.3,
+	  libs/libdb/README, libs/libdb/btree,
+	  libs/libdb/btree/Makefile.inc, libs/libdb/btree/bt_close.c,
+	  libs/libdb/btree/bt_conv.c, libs/libdb/btree/bt_debug.c,
+	  libs/libdb/btree/bt_delete.c, libs/libdb/btree/bt_get.c,
+	  libs/libdb/btree/bt_open.c, libs/libdb/btree/bt_overflow.c,
+	  libs/libdb/btree/bt_page.c, libs/libdb/btree/bt_put.c,
+	  libs/libdb/btree/bt_search.c, libs/libdb/btree/bt_seq.c,
+	  libs/libdb/btree/bt_split.c, libs/libdb/btree/bt_utils.c,
+	  libs/libdb/btree/btree.h, libs/libdb/btree/extern.h,
+	  libs/libdb/btree/tags, libs/libdb/changelog, libs/libdb/db,
+	  libs/libdb/db/Makefile.inc, libs/libdb/db/db.c,
+	  libs/libdb/db/tags, libs/libdb/docs, libs/libdb/docs/btree.3.ps,
+	  libs/libdb/docs/dbopen.3.ps, libs/libdb/docs/hash.3.ps,
+	  libs/libdb/docs/hash.usenix.ps, libs/libdb/docs/libtp.usenix.ps,
+	  libs/libdb/docs/mpool.3.ps, libs/libdb/docs/recno.3.ps,
+	  libs/libdb/hash, libs/libdb/hash/Makefile.inc,
+	  libs/libdb/hash/README, libs/libdb/hash/extern.h,
+	  libs/libdb/hash/hash.c, libs/libdb/hash/hash.h,
+	  libs/libdb/hash/hash_bigkey.c, libs/libdb/hash/hash_buf.c,
+	  libs/libdb/hash/hash_func.c, libs/libdb/hash/hash_log2.c,
+	  libs/libdb/hash/hash_page.c, libs/libdb/hash/hsearch.c,
+	  libs/libdb/hash/ndbm.c, libs/libdb/hash/page.h,
+	  libs/libdb/hash/search.h, libs/libdb/hash/tags,
+	  libs/libdb/include, libs/libdb/include/db.h,
+	  libs/libdb/include/mpool.h, libs/libdb/include/tags,
+	  libs/libdb/man, libs/libdb/man/Makefile.inc,
+	  libs/libdb/man/btree.3, libs/libdb/man/dbopen.3,
+	  libs/libdb/man/hash.3, libs/libdb/man/mpool.3,
+	  libs/libdb/man/recno.3, libs/libdb/mpool,
+	  libs/libdb/mpool/Makefile.inc, libs/libdb/mpool/README,
+	  libs/libdb/mpool/mpool.c, libs/libdb/mpool/mpool.libtp,
+	  libs/libdb/mpool/tags, libs/libdb/recno,
+	  libs/libdb/recno/Makefile.inc, libs/libdb/recno/extern.h,
+	  libs/libdb/recno/rec_close.c, libs/libdb/recno/rec_delete.c,
+	  libs/libdb/recno/rec_get.c, libs/libdb/recno/rec_open.c,
+	  libs/libdb/recno/rec_put.c, libs/libdb/recno/rec_search.c,
+	  libs/libdb/recno/rec_seq.c, libs/libdb/recno/rec_utils.c,
+	  libs/libdb/recno/recno.h, libs/libdb/recno/tags, libs/libdb/test,
+	  libs/libdb/test/Makefile, libs/libdb/test/README,
+	  libs/libdb/test/btree.tests, libs/libdb/test/btree.tests/main.c,
+	  libs/libdb/test/dbtest.c, libs/libdb/test/hash.tests,
+	  libs/libdb/test/hash.tests/driver2.c,
+	  libs/libdb/test/hash.tests/makedb.sh,
+	  libs/libdb/test/hash.tests/tcreat3.c,
+	  libs/libdb/test/hash.tests/tdel.c,
+	  libs/libdb/test/hash.tests/testit,
+	  libs/libdb/test/hash.tests/thash4.c,
+	  libs/libdb/test/hash.tests/tread2.c,
+	  libs/libdb/test/hash.tests/tseq.c,
+	  libs/libdb/test/hash.tests/tverify.c, libs/libdb/test/run.test,
+	  libs/libnet, libs/libnet/CVS, libs/libnet/CVS/Entries,
+	  libs/libnet/CVS/Repository, libs/libnet/CVS/Root,
+	  libs/libnet/Makefile.am, libs/libnet/Makefile.am.common,
+	  libs/libnet/Makefile.in, libs/libnet/README, libs/libnet/VERSION,
+	  libs/libnet/acconfig.h, libs/libnet/acinclude.m4,
+	  libs/libnet/aclocal.m4, libs/libnet/autom4te.cache,
+	  libs/libnet/autom4te.cache/CVS,
+	  libs/libnet/autom4te.cache/CVS/Entries,
+	  libs/libnet/autom4te.cache/CVS/Repository,
+	  libs/libnet/autom4te.cache/CVS/Root,
+	  libs/libnet/autom4te.cache/output.0,
+	  libs/libnet/autom4te.cache/requests,
+	  libs/libnet/autom4te.cache/traces.0, libs/libnet/config.guess,
+	  libs/libnet/config.sub, libs/libnet/configure,
+	  libs/libnet/configure.in, libs/libnet/doc, libs/libnet/doc/BUGS,
+	  libs/libnet/doc/CHANGELOG, libs/libnet/doc/CONTRIB,
+	  libs/libnet/doc/COPYING, libs/libnet/doc/CVS,
+	  libs/libnet/doc/CVS/Entries, libs/libnet/doc/CVS/Repository,
+	  libs/libnet/doc/CVS/Root, libs/libnet/doc/DESIGN_NOTES,
+	  libs/libnet/doc/MIGRATION, libs/libnet/doc/PACKET_BUILDING,
+	  libs/libnet/doc/PORTED, libs/libnet/doc/RAWSOCKET_NON_SEQUITUR,
+	  libs/libnet/doc/TODO, libs/libnet/doc/html,
+	  libs/libnet/doc/html/acconfig_8h-source.html,
+	  libs/libnet/doc/html/annotated.html,
+	  libs/libnet/doc/html/bpf_8h-source.html,
+	  libs/libnet/doc/html/config_8h-source.html,
+	  libs/libnet/doc/html/doxygen.css,
+	  libs/libnet/doc/html/doxygen.png,
+	  libs/libnet/doc/html/files.html,
+	  libs/libnet/doc/html/functions.html,
+	  libs/libnet/doc/html/functions_vars.html,
+	  libs/libnet/doc/html/getopt_8h-source.html,
+	  libs/libnet/doc/html/globals.html,
+	  libs/libnet/doc/html/globals_defs.html,
+	  libs/libnet/doc/html/globals_func.html,
+	  libs/libnet/doc/html/gnuc_8h-source.html,
+	  libs/libnet/doc/html/graph_legend.dot,
+	  libs/libnet/doc/html/graph_legend.html,
+	  libs/libnet/doc/html/ifaddrlist_8h-source.html,
+	  libs/libnet/doc/html/in__systm_8h-source.html,
+	  libs/libnet/doc/html/index.html,
+	  libs/libnet/doc/html/libnet-asn1_8h-source.html,
+	  libs/libnet/doc/html/libnet-functions_8h-source.html,
+	  libs/libnet/doc/html/libnet-functions_8h.html,
+	  libs/libnet/doc/html/libnet-headers_8h-source.html,
+	  libs/libnet/doc/html/libnet-headers_8h.html,
+	  libs/libnet/doc/html/libnet-macros_8h-source.html,
+	  libs/libnet/doc/html/libnet-macros_8h.html,
+	  libs/libnet/doc/html/libnet-structures_8h-source.html,
+	  libs/libnet/doc/html/libnet-types_8h-source.html,
+	  libs/libnet/doc/html/libnet_8h-source.html,
+	  libs/libnet/doc/html/libnet_8h.html,
+	  libs/libnet/doc/html/structlibnet__802__1q__hdr.html,
+	  libs/libnet/doc/html/structlibnet__802__1x__hdr.html,
+	  libs/libnet/doc/libnet.doxygen.conf, libs/libnet/doc/man,
+	  libs/libnet/doc/man/CVS, libs/libnet/doc/man/CVS/Entries,
+	  libs/libnet/doc/man/CVS/Repository, libs/libnet/doc/man/CVS/Root,
+	  libs/libnet/doc/man/man3,
+	  libs/libnet/doc/man/man3/libnet-functions.h.3,
+	  libs/libnet/doc/man/man3/libnet-headers.h.3,
+	  libs/libnet/doc/man/man3/libnet-macros.h.3,
+	  libs/libnet/doc/man/man3/libnet.h.3,
+	  libs/libnet/doc/man/man3/libnet_802_1q_hdr.3,
+	  libs/libnet/doc/man/man3/libnet_802_1x_hdr.3,
+	  libs/libnet/include, libs/libnet/include/CVS,
+	  libs/libnet/include/CVS/Entries,
+	  libs/libnet/include/CVS/Repository, libs/libnet/include/CVS/Root,
+	  libs/libnet/include/Makefile.am, libs/libnet/include/Makefile.in,
+	  libs/libnet/include/bpf.h, libs/libnet/include/config.h.in,
+	  libs/libnet/include/gnuc.h, libs/libnet/include/ifaddrlist.h,
+	  libs/libnet/include/libnet, libs/libnet/include/libnet.h.in,
+	  libs/libnet/include/libnet/CVS,
+	  libs/libnet/include/libnet/CVS/Entries,
+	  libs/libnet/include/libnet/CVS/Repository,
+	  libs/libnet/include/libnet/CVS/Root,
+	  libs/libnet/include/libnet/Makefile.am,
+	  libs/libnet/include/libnet/Makefile.in,
+	  libs/libnet/include/libnet/libnet-asn1.h,
+	  libs/libnet/include/libnet/libnet-functions.h,
+	  libs/libnet/include/libnet/libnet-headers.h,
+	  libs/libnet/include/libnet/libnet-macros.h,
+	  libs/libnet/include/libnet/libnet-structures.h,
+	  libs/libnet/include/libnet/libnet-types.h,
+	  libs/libnet/include/stamp-h.in, libs/libnet/include/win32,
+	  libs/libnet/include/win32/CVS,
+	  libs/libnet/include/win32/CVS/Entries,
+	  libs/libnet/include/win32/CVS/Repository,
+	  libs/libnet/include/win32/CVS/Root,
+	  libs/libnet/include/win32/config.h,
+	  libs/libnet/include/win32/getopt.h,
+	  libs/libnet/include/win32/in_systm.h,
+	  libs/libnet/include/win32/libnet.h, libs/libnet/install-sh,
+	  libs/libnet/libnet-config.in, libs/libnet/libnet.doxygen.conf,
+	  libs/libnet/man, libs/libnet/man/CVS,
+	  libs/libnet/man/CVS/Entries, libs/libnet/man/CVS/Repository,
+	  libs/libnet/man/CVS/Root, libs/libnet/missing,
+	  libs/libnet/mkinstalldirs, libs/libnet/sample,
+	  libs/libnet/sample/.icmp_redirect.c.swp, libs/libnet/sample/CVS,
+	  libs/libnet/sample/CVS/Entries,
+	  libs/libnet/sample/CVS/Repository, libs/libnet/sample/CVS/Root,
+	  libs/libnet/sample/Makefile.am, libs/libnet/sample/Makefile.in,
+	  libs/libnet/sample/arp-new.c, libs/libnet/sample/arp.c,
+	  libs/libnet/sample/bgp4_hdr.c,
+	  libs/libnet/sample/bgp4_notification.c,
+	  libs/libnet/sample/bgp4_open.c, libs/libnet/sample/bgp4_update.c,
+	  libs/libnet/sample/cdp.c, libs/libnet/sample/dhcp_discover.c,
+	  libs/libnet/sample/dns.c, libs/libnet/sample/dot1x.c,
+	  libs/libnet/sample/fddi_tcp1.c, libs/libnet/sample/fddi_tcp2.c,
+	  libs/libnet/sample/get_addr.c, libs/libnet/sample/gre.c,
+	  libs/libnet/sample/icmp6_echoreq.c,
+	  libs/libnet/sample/icmp_echo_cq.c,
+	  libs/libnet/sample/icmp_redirect.c,
+	  libs/libnet/sample/icmp_timeexceed.c,
+	  libs/libnet/sample/icmp_timestamp.c,
+	  libs/libnet/sample/icmp_unreach.c, libs/libnet/sample/ieee.c,
+	  libs/libnet/sample/ip_link.c, libs/libnet/sample/ip_raw.c,
+	  libs/libnet/sample/isl.c, libs/libnet/sample/libnet_test.h,
+	  libs/libnet/sample/mpls.c, libs/libnet/sample/ntp.c,
+	  libs/libnet/sample/ospf_hello.c, libs/libnet/sample/ospf_lsa.c,
+	  libs/libnet/sample/ping_of_death.c, libs/libnet/sample/rpc_tcp.c,
+	  libs/libnet/sample/rpc_udp.c, libs/libnet/sample/sebek.c,
+	  libs/libnet/sample/smurf.c, libs/libnet/sample/stp.c,
+	  libs/libnet/sample/synflood.c, libs/libnet/sample/synflood6.c,
+	  libs/libnet/sample/synflood6_frag.c, libs/libnet/sample/tcp1.c,
+	  libs/libnet/sample/tcp2.c, libs/libnet/sample/tftp.c,
+	  libs/libnet/sample/tring_tcp1.c, libs/libnet/sample/tring_tcp2.c,
+	  libs/libnet/sample/udp1.c, libs/libnet/sample/udp2.c,
+	  libs/libnet/sample/win32, libs/libnet/sample/win32/CVS,
+	  libs/libnet/sample/win32/CVS/Entries,
+	  libs/libnet/sample/win32/CVS/Repository,
+	  libs/libnet/sample/win32/CVS/Root, libs/libnet/sample/win32/arp,
+	  libs/libnet/sample/win32/arp/CVS,
+	  libs/libnet/sample/win32/arp/CVS/Entries,
+	  libs/libnet/sample/win32/arp/CVS/Repository,
+	  libs/libnet/sample/win32/arp/CVS/Root,
+	  libs/libnet/sample/win32/arp/arp.vcproj,
+	  libs/libnet/sample/win32/cdp, libs/libnet/sample/win32/cdp/CVS,
+	  libs/libnet/sample/win32/cdp/CVS/Entries,
+	  libs/libnet/sample/win32/cdp/CVS/Repository,
+	  libs/libnet/sample/win32/cdp/CVS/Root,
+	  libs/libnet/sample/win32/cdp/cdp.vcproj,
+	  libs/libnet/sample/win32/dhcp_discover,
+	  libs/libnet/sample/win32/dhcp_discover/CVS,
+	  libs/libnet/sample/win32/dhcp_discover/CVS/Entries,
+	  libs/libnet/sample/win32/dhcp_discover/CVS/Repository,
+	  libs/libnet/sample/win32/dhcp_discover/CVS/Root,
+	  libs/libnet/sample/win32/dhcp_discover/dhcp_discover.vcproj,
+	  libs/libnet/sample/win32/dns, libs/libnet/sample/win32/dns/CVS,
+	  libs/libnet/sample/win32/dns/CVS/Entries,
+	  libs/libnet/sample/win32/dns/CVS/Repository,
+	  libs/libnet/sample/win32/dns/CVS/Root,
+	  libs/libnet/sample/win32/dns/dns.vcproj,
+	  libs/libnet/sample/win32/get_addr,
+	  libs/libnet/sample/win32/get_addr/CVS,
+	  libs/libnet/sample/win32/get_addr/CVS/Entries,
+	  libs/libnet/sample/win32/get_addr/CVS/Repository,
+	  libs/libnet/sample/win32/get_addr/CVS/Root,
+	  libs/libnet/sample/win32/get_addr/get_addr.vcproj,
+	  libs/libnet/sample/win32/getopt.c,
+	  libs/libnet/sample/win32/icmp_echo_cq,
+	  libs/libnet/sample/win32/icmp_echo_cq/CVS,
+	  libs/libnet/sample/win32/icmp_echo_cq/CVS/Entries,
+	  libs/libnet/sample/win32/icmp_echo_cq/CVS/Repository,
+	  libs/libnet/sample/win32/icmp_echo_cq/CVS/Root,
+	  libs/libnet/sample/win32/icmp_echo_cq/icmp_echo_cq.vcproj,
+	  libs/libnet/sample/win32/tcp1, libs/libnet/sample/win32/tcp1/CVS,
+	  libs/libnet/sample/win32/tcp1/CVS/Entries,
+	  libs/libnet/sample/win32/tcp1/CVS/Repository,
+	  libs/libnet/sample/win32/tcp1/CVS/Root,
+	  libs/libnet/sample/win32/tcp1/tcp1.vcproj,
+	  libs/libnet/sample/win32/udp1, libs/libnet/sample/win32/udp1/CVS,
+	  libs/libnet/sample/win32/udp1/CVS/Entries,
+	  libs/libnet/sample/win32/udp1/CVS/Repository,
+	  libs/libnet/sample/win32/udp1/CVS/Root,
+	  libs/libnet/sample/win32/udp1/dns.vcproj,
+	  libs/libnet/sample/win32/udp1/udp1.vcproj, libs/libnet/src,
+	  libs/libnet/src/CVS, libs/libnet/src/CVS/Entries,
+	  libs/libnet/src/CVS/Repository, libs/libnet/src/CVS/Root,
+	  libs/libnet/src/Makefile.am, libs/libnet/src/Makefile.in,
+	  libs/libnet/src/libnet_advanced.c, libs/libnet/src/libnet_asn1.c,
+	  libs/libnet/src/libnet_build_802.1q.c,
+	  libs/libnet/src/libnet_build_802.1x.c,
+	  libs/libnet/src/libnet_build_802.2.c,
+	  libs/libnet/src/libnet_build_802.3.c,
+	  libs/libnet/src/libnet_build_arp.c,
+	  libs/libnet/src/libnet_build_bgp.c,
+	  libs/libnet/src/libnet_build_cdp.c,
+	  libs/libnet/src/libnet_build_data.c,
+	  libs/libnet/src/libnet_build_dhcp.c,
+	  libs/libnet/src/libnet_build_dns.c,
+	  libs/libnet/src/libnet_build_ethernet.c,
+	  libs/libnet/src/libnet_build_fddi.c,
+	  libs/libnet/src/libnet_build_gre.c,
+	  libs/libnet/src/libnet_build_icmp.c,
+	  libs/libnet/src/libnet_build_igmp.c,
+	  libs/libnet/src/libnet_build_ip.c,
+	  libs/libnet/src/libnet_build_ipsec.c,
+	  libs/libnet/src/libnet_build_isl.c,
+	  libs/libnet/src/libnet_build_link.c,
+	  libs/libnet/src/libnet_build_mpls.c,
+	  libs/libnet/src/libnet_build_ntp.c,
+	  libs/libnet/src/libnet_build_ospf.c,
+	  libs/libnet/src/libnet_build_rip.c,
+	  libs/libnet/src/libnet_build_rpc.c,
+	  libs/libnet/src/libnet_build_sebek.c,
+	  libs/libnet/src/libnet_build_snmp.c,
+	  libs/libnet/src/libnet_build_stp.c,
+	  libs/libnet/src/libnet_build_tcp.c,
+	  libs/libnet/src/libnet_build_token_ring.c,
+	  libs/libnet/src/libnet_build_udp.c,
+	  libs/libnet/src/libnet_build_vrrp.c,
+	  libs/libnet/src/libnet_checksum.c, libs/libnet/src/libnet_cq.c,
+	  libs/libnet/src/libnet_crc.c, libs/libnet/src/libnet_dll.c,
+	  libs/libnet/src/libnet_error.c, libs/libnet/src/libnet_if_addr.c,
+	  libs/libnet/src/libnet_init.c, libs/libnet/src/libnet_internal.c,
+	  libs/libnet/src/libnet_link_bpf.c,
+	  libs/libnet/src/libnet_link_dlpi.c,
+	  libs/libnet/src/libnet_link_linux.c,
+	  libs/libnet/src/libnet_link_nit.c,
+	  libs/libnet/src/libnet_link_none.c,
+	  libs/libnet/src/libnet_link_pf.c,
+	  libs/libnet/src/libnet_link_snit.c,
+	  libs/libnet/src/libnet_link_snoop.c,
+	  libs/libnet/src/libnet_link_win32.c,
+	  libs/libnet/src/libnet_pblock.c,
+	  libs/libnet/src/libnet_port_list.c,
+	  libs/libnet/src/libnet_prand.c, libs/libnet/src/libnet_raw.c,
+	  libs/libnet/src/libnet_resolve.c,
+	  libs/libnet/src/libnet_version.c, libs/libnet/src/libnet_write.c,
+	  libs/libnet/version.h.in, libs/libnet/win32,
+	  libs/libnet/win32/CVS, libs/libnet/win32/CVS/Entries,
+	  libs/libnet/win32/CVS/Repository, libs/libnet/win32/CVS/Root,
+	  libs/libnet/win32/Libnet-1.1.1-2002.sln,
+	  libs/libnet/win32/Libnet-1.1.1-2003.ncb,
+	  libs/libnet/win32/Libnet-1.1.1-2003.sln,
+	  libs/libnet/win32/Libnet-1.1.1-2003.suo,
+	  libs/libnet/win32/Libnet-1.1.1.vcproj,
+	  libs/libnet/win32/Libnet-latest.ncb,
+	  libs/libnet/win32/Libnet-latest.opt,
+	  libs/libnet/win32/Libnet-latest.sln,
+	  libs/libnet/win32/Libnet-latest.suo,
+	  libs/libnet/win32/Libnet-latest.vcproj,
+	  libs/libnet/win32/Libnet.dsp, libs/libnet/win32/Libnet.dsw,
+	  libs/libnet/win32/README.txt, libs/libnet/win32/libnet_dll.def,
+	  libs/libsf, libs/libsf/CVS, libs/libsf/CVS/Entries,
+	  libs/libsf/CVS/Repository, libs/libsf/CVS/Root,
+	  libs/libsf/Makefile.am, libs/libsf/Makefile.am.common,
+	  libs/libsf/Makefile.in, libs/libsf/README, libs/libsf/VERSION,
+	  libs/libsf/acconfig.h, libs/libsf/aclocal.m4,
+	  libs/libsf/config.guess, libs/libsf/config.sub,
+	  libs/libsf/configure, libs/libsf/configure.in, libs/libsf/doc,
+	  libs/libsf/doc/BUGS, libs/libsf/doc/CVS,
+	  libs/libsf/doc/CVS/Entries, libs/libsf/doc/CVS/Repository,
+	  libs/libsf/doc/CVS/Root, libs/libsf/doc/TODO, libs/libsf/import,
+	  libs/libsf/import/CVS, libs/libsf/import/CVS/Entries,
+	  libs/libsf/import/CVS/Repository, libs/libsf/import/CVS/Root,
+	  libs/libsf/import/Makefile.am, libs/libsf/import/Makefile.in,
+	  libs/libsf/import/libsf_import.c,
+	  libs/libsf/import/libsf_import.h, libs/libsf/import/nmap-fp.txt,
+	  libs/libsf/import/nmap-os-fingerprints, libs/libsf/include,
+	  libs/libsf/include/CVS, libs/libsf/include/CVS/Entries,
+	  libs/libsf/include/CVS/Repository, libs/libsf/include/CVS/Root,
+	  libs/libsf/include/Makefile.am, libs/libsf/include/Makefile.in,
+	  libs/libsf/include/config.h.in, libs/libsf/include/libsf.h.in,
+	  libs/libsf/include/stamp-h.in, libs/libsf/install-sh,
+	  libs/libsf/man, libs/libsf/man/CVS, libs/libsf/man/CVS/Entries,
+	  libs/libsf/man/CVS/Repository, libs/libsf/man/CVS/Root,
+	  libs/libsf/man/Makefile.am, libs/libsf/man/Makefile.in,
+	  libs/libsf/man/sf.3, libs/libsf/missing,
+	  libs/libsf/mkinstalldirs, libs/libsf/sample,
+	  libs/libsf/sample/CVS, libs/libsf/sample/CVS/Entries,
+	  libs/libsf/sample/CVS/Repository, libs/libsf/sample/CVS/Root,
+	  libs/libsf/sample/CVS/legerdemain.c,t,
+	  libs/libsf/sample/Makefile.am, libs/libsf/sample/Makefile.in,
+	  libs/libsf/sample/legerdemain.c, libs/libsf/src,
+	  libs/libsf/src/CVS, libs/libsf/src/CVS/Entries,
+	  libs/libsf/src/CVS/Repository, libs/libsf/src/CVS/Root,
+	  libs/libsf/src/Makefile.am, libs/libsf/src/Makefile.in,
+	  libs/libsf/src/libsf_active_id.c, libs/libsf/src/libsf_db.c,
+	  libs/libsf/src/libsf_get_response.c, libs/libsf/src/libsf_init.c,
+	  libs/libsf/src/libsf_os.c, libs/libsf/src/libsf_passive_id.c,
+	  libs/libsf/src/libsf_portscan.c, libs/libsf/src/libsf_scan_tcp.c,
+	  libs/libsf/src/libsf_set_filter.c, libs/libsf/version.h.in,
+	  main/Makefile.am, main/Makefile.in: Add libsf, libnet and libdb
+	  to the locust tree.
+	  - libsf depends on libnet and libdb.
+
+2009-03-01 19:00  eliels
+
+	* main/route.c, main/sniffer.c: - Add more code documentation.
+	  - Disable the packet sniffer if locust is not running as root.
+
+2009-03-01 18:12  eliels
+
+	* main/sniffer.c: Fix a leak while destroy the sniffer_filter
+	  structure.
+
+2009-03-01 06:09  eliels
+
+	* include/locust.h, include/locust/_private.h,
+	  include/locust/packet.h, include/locust/route.h,
+	  include/locust/socket.h, main/ethernet.c, main/locust.c,
+	  main/netutils.c, main/packet.c, main/route.c, main/sniffer.c,
+	  main/socket.c, modules/scanners/scanner_syn.c: Use libpcap for
+	  sending raw packets.
+
+2009-03-01 04:50  eliels
+
+	* configure, configure.ac, libs/libdnet, main/Makefile.am,
+	  main/Makefile.in: Remove libdnet for the locust tree (this
+	  library does not support ipv6!)
+
+2009-02-27 18:42  eliels
+
+	* main/sniffer.c: Fix a compile warning in OpenBSD.
+
+2009-02-27 13:21  eliels
+
+	* include/locust/route.h: I missed route.h in my last commit.
+
+2009-02-27 13:01  eliels
+
+	* main/Makefile.am, main/Makefile.in, main/ip.c, main/route.c,
+	  modules/scanners/scanner_syn.c: Set the src ip in the syn packet.
+	  Set a ttl of 64 in the ip packet.
+
+2009-02-27 12:33  eliels
+
+	* main/socket.c: Remember to free the addrinfo structure when not
+	  needed anymore.
+
+2009-02-27 11:35  eliels
+
+	* configure, configure.ac, libs/libdnet, libs/libdnet/INSTALL,
+	  libs/libdnet/LICENSE, libs/libdnet/Makefile.am,
+	  libs/libdnet/Makefile.am.common, libs/libdnet/Makefile.in,
+	  libs/libdnet/README, libs/libdnet/THANKS, libs/libdnet/TODO,
+	  libs/libdnet/acconfig.h, libs/libdnet/aclocal.m4,
+	  libs/libdnet/config, libs/libdnet/config/acinclude.m4,
+	  libs/libdnet/config/config.guess, libs/libdnet/config/config.sub,
+	  libs/libdnet/config/install-sh, libs/libdnet/config/ltmain.sh,
+	  libs/libdnet/config/missing, libs/libdnet/config/mkinstalldirs,
+	  libs/libdnet/configure, libs/libdnet/configure.in,
+	  libs/libdnet/dnet-config.in, libs/libdnet/include,
+	  libs/libdnet/include/Makefile.am,
+	  libs/libdnet/include/Makefile.in,
+	  libs/libdnet/include/config.h.in, libs/libdnet/include/dnet,
+	  libs/libdnet/include/dnet.h,
+	  libs/libdnet/include/dnet/Makefile.am,
+	  libs/libdnet/include/dnet/Makefile.in,
+	  libs/libdnet/include/dnet/addr.h,
+	  libs/libdnet/include/dnet/arp.h,
+	  libs/libdnet/include/dnet/blob.h,
+	  libs/libdnet/include/dnet/eth.h, libs/libdnet/include/dnet/fw.h,
+	  libs/libdnet/include/dnet/icmp.h,
+	  libs/libdnet/include/dnet/intf.h, libs/libdnet/include/dnet/ip.h,
+	  libs/libdnet/include/dnet/ip6.h, libs/libdnet/include/dnet/os.h,
+	  libs/libdnet/include/dnet/rand.h,
+	  libs/libdnet/include/dnet/route.h,
+	  libs/libdnet/include/dnet/tcp.h, libs/libdnet/include/dnet/tun.h,
+	  libs/libdnet/include/dnet/udp.h, libs/libdnet/include/err.h,
+	  libs/libdnet/include/queue.h, libs/libdnet/man,
+	  libs/libdnet/man/Makefile.am, libs/libdnet/man/Makefile.in,
+	  libs/libdnet/man/dnet.3, libs/libdnet/python,
+	  libs/libdnet/python/Makefile.am, libs/libdnet/python/Makefile.in,
+	  libs/libdnet/python/README, libs/libdnet/python/dnet.c,
+	  libs/libdnet/python/dnet.pyx, libs/libdnet/python/setup.py.in,
+	  libs/libdnet/python/test.py, libs/libdnet/src,
+	  libs/libdnet/src/Makefile.am, libs/libdnet/src/Makefile.in,
+	  libs/libdnet/src/addr-util.c, libs/libdnet/src/addr.c,
+	  libs/libdnet/src/arp-bsd.c, libs/libdnet/src/arp-ioctl.c,
+	  libs/libdnet/src/arp-none.c, libs/libdnet/src/arp-win32.c,
+	  libs/libdnet/src/blob.c, libs/libdnet/src/err.c,
+	  libs/libdnet/src/eth-bsd.c, libs/libdnet/src/eth-dlpi.c,
+	  libs/libdnet/src/eth-linux.c, libs/libdnet/src/eth-ndd.c,
+	  libs/libdnet/src/eth-none.c, libs/libdnet/src/eth-pfilt.c,
+	  libs/libdnet/src/eth-snoop.c, libs/libdnet/src/eth-win32.c,
+	  libs/libdnet/src/fw-ipchains.c, libs/libdnet/src/fw-ipf.c,
+	  libs/libdnet/src/fw-ipfw.c, libs/libdnet/src/fw-none.c,
+	  libs/libdnet/src/fw-pf.c, libs/libdnet/src/fw-pktfilter.c,
+	  libs/libdnet/src/intf-win32.c, libs/libdnet/src/intf.c,
+	  libs/libdnet/src/ip-cooked.c, libs/libdnet/src/ip-util.c,
+	  libs/libdnet/src/ip-win32.c, libs/libdnet/src/ip.c,
+	  libs/libdnet/src/ip6.c, libs/libdnet/src/memcmp.c,
+	  libs/libdnet/src/rand.c, libs/libdnet/src/route-bsd.c,
+	  libs/libdnet/src/route-hpux.c, libs/libdnet/src/route-linux.c,
+	  libs/libdnet/src/route-none.c, libs/libdnet/src/route-win32.c,
+	  libs/libdnet/src/strlcat.c, libs/libdnet/src/strlcpy.c,
+	  libs/libdnet/src/strsep.c, libs/libdnet/src/tun-bsd.c,
+	  libs/libdnet/src/tun-linux.c, libs/libdnet/src/tun-none.c,
+	  libs/libdnet/src/tun-solaris.c, libs/libdnet/test,
+	  libs/libdnet/test/Makefile.am, libs/libdnet/test/Makefile.in,
+	  libs/libdnet/test/check, libs/libdnet/test/check/Makefile.am,
+	  libs/libdnet/test/check/Makefile.in,
+	  libs/libdnet/test/check/check_addr.c,
+	  libs/libdnet/test/check/check_arp.c,
+	  libs/libdnet/test/check/check_blob.c,
+	  libs/libdnet/test/check/check_eth.c,
+	  libs/libdnet/test/check/check_fw.c,
+	  libs/libdnet/test/check/check_intf.c,
+	  libs/libdnet/test/check/check_ip.c,
+	  libs/libdnet/test/check/check_rand.c,
+	  libs/libdnet/test/check/check_route.c, libs/libdnet/test/dnet,
+	  libs/libdnet/test/dnet/Makefile.am,
+	  libs/libdnet/test/dnet/Makefile.in,
+	  libs/libdnet/test/dnet/addr.c, libs/libdnet/test/dnet/arp.c,
+	  libs/libdnet/test/dnet/aton.c, libs/libdnet/test/dnet/aton.h,
+	  libs/libdnet/test/dnet/dnet.8, libs/libdnet/test/dnet/dnet.c,
+	  libs/libdnet/test/dnet/eth.c, libs/libdnet/test/dnet/fw.c,
+	  libs/libdnet/test/dnet/hex.c, libs/libdnet/test/dnet/icmp.c,
+	  libs/libdnet/test/dnet/intf.c, libs/libdnet/test/dnet/ip.c,
+	  libs/libdnet/test/dnet/mod.h, libs/libdnet/test/dnet/rand.c,
+	  libs/libdnet/test/dnet/route.c, libs/libdnet/test/dnet/send.c,
+	  libs/libdnet/test/dnet/tcp.c, libs/libdnet/test/dnet/udp.c,
+	  main/Makefile.am, main/Makefile.in: Add libdnet to the locust
+	  tree.
+
+2009-02-27 10:47  eliels
+
+	* main/socket.c, modules/scanners/scanner_syn.c: Check for root
+	  permissions when loading the TCP SYN scanner module.
+
+2009-02-27 02:58  eliels
+
+	* DoxyFile: Remove obsolote doxygen configuration option.
+
+2009-02-27 02:53  eliels
+
+	* include/locust/packet.h, include/locust/socket.h,
+	  include/locust/tcp.h, main/ip.c, main/packet.c, main/socket.c,
+	  main/tcp.c, modules/scanners/scanner_syn.c: Add a TCP SYN scanner
+	  (we need to know how to set the src ip address based on
+	  the host routing table).
+
+2009-02-26 02:40  eliels
+
+	* modules/scanners/connect_scan.c,
+	  modules/scanners/scanner_connect.c,
+	  modules/scanners/scanner_udp.c, modules/scanners/udp_scan.c:
+	  Rename the scanner modules files.
+
+2009-02-26 01:52  eliels
+
+	* main/ip.c, main/tcp.c: Print 32 bits integer header values as
+	  unsigned integer.
+
+2009-02-26 01:31  eliels
+
+	* include/locust/sniffer.h, main/sniffer.c: Make possible to save
+	  the captured packets in memory or send them to a file for future
+	  use.
+
+2009-02-25 21:14  eliels
+
+	* include/locust/_private.h, main/Makefile.am, main/Makefile.in,
+	  main/locust.c, main/payload.c, main/sniffer.c: - Add a new
+	  internal injector 'payload'.
+
+2009-02-25 14:07  eliels
+
+	* main/ethernet.c, main/ip.c, main/packet.c, main/sniffer.c: - Fix
+	  the way we print the ethernet header.
+	  - Add a headers column to the 'packet show' CLI command.
+	  - Continue adding headers to the packet when parsing it.
+
+2009-02-25 02:05  eliels
+
+	* AUTHORS, CREDITS: Move Gustavo Borgoni from the authors list to
+	  the contributers list.
+
+2009-02-25 02:01  eliels
+
+	* include/locust/packet.h, main/ethernet.c, main/icmp.c, main/ip.c,
+	  main/packet.c, main/sniffer.c, main/tcp.c, main/udp.c: Implement
+	  the getter function to get header values from a protocol header.
+	  Start parsing the received packets in the sniffer.
+
+2009-02-18 02:57  eliels
+
+	* main/socket.c: Fix an error while trying to send a raw packet in
+	  MacOSx
+
+2009-02-18 02:47  eliels
+
+	* include/locust/compat.h, include/locust/packet.h,
+	  main/ethernet.c, main/icmp.c, main/ip.c, main/netutils.c,
+	  main/packet.c, main/sniffer.c, main/tcp.c, main/udp.c: Modify the
+	  way we register an injector.
+	  Rename the etherip injector to ethernet.
+
+2009-02-18 01:44  eliels
+
+	* main/logger.c: Avoid defining a comparator function when not
+	  being used.
+
+2009-02-18 01:42  eliels
+
+	* main/icmp.c: Simplify the code for icmp types and code
+	  management.
+
+2009-02-18 01:21  eliels
+
+	* main/ethernet.c: Fix a compile error in linux.
+
+2009-02-17 23:29  eliels
+
+	* main/locust.c, main/packet.c: Fix a crash when quiting locust.
+
+2009-02-17 23:00  eliels
+
+	* main/ethernet.c, main/sniffer.c: Fix a compiler warning in max
+	  osc.
+
+2009-02-17 22:55  eliels
+
+	* include/locust/config.h, locust.conf.in, main/locust.c: Set the
+	  maximum number of open files to a suitable value for this
+	  process.
+
+2009-02-17 18:54  eliels
+
+	* main/cli.c, main/packet.c, main/sniffer.c, main/socket.c:
+	  Simplify simclist comparators and seeker avoiding the use of a
+	  temporary variable
+	  only used for casting.
+	  Sort the list of commands every time a new commands is
+	  registered.
+
+2009-02-16 19:59  eliels
+
+	* main/ethernet.c: Fix an error when printing the ethernet packet.
+
+2009-02-16 19:59  eliels
+
+	* include/locust/packet.h: Fix a documentation error.
+
+2009-02-16 19:58  eliels
+
+	* main/packet.c: Make the protocol injection based on the protocol
+	  name, and not the protocol id.
+
+2009-02-16 19:02  eliels
+
+	* main/ethernet.c: Add structure documentation.
+
+2009-02-16 18:54  eliels
+
+	* main/ethernet.c: Add all the ethernet packet types to the
+	  ethernet injector.
+
+2009-02-16 13:49  eliels
+
+	* main/sniffer.c: Remove a not necesary function comparator for the
+	  devices.
+
+2009-02-16 02:54  eliels
+
+	* include/locust/sniffer.h, main/sniffer.c: Make sniffer_device
+	  opaque to the API user.
+
+2009-02-14 23:46  eliels
+
+	* main/scanner.c: Fix a problem in the seeker function of the
+	  scanner introduced in the last commit.
+
+2009-02-14 21:38  eliels
+
+	* include/locust/_private.h, include/locust/packet.h,
+	  include/locust/wordlist.h, main/cli.c, main/loader.c,
+	  main/locust.c, main/packet.c, main/scanner.c, main/sniffer.c,
+	  main/socket.c, main/tcp.c, main/udp.c, main/wordlist.c,
+	  modules/wordlists/wordlist_file.c: Free allocated memory when
+	  before quiting locust.
+
+2009-02-14 19:34  eliels
+
+	* README: Add the new sniffer feature.
+
+2009-02-14 19:05  eliels
+
+	* main/cli.c: Add checks after calling lct_strdupa().
+	  Remove useless printf used for debugging purposes.
+
+2009-02-14 18:58  eliels
+
+	* main/cli.c: Fix some memory leaks in the CLI subsystem.
+
+2009-02-13 18:01  eliels
+
+	* main/cli.c: Fix a crash while trying to autocomplete the CLI
+	  command line having a space before the
+	  first character.
+
+2009-02-12 19:43  eliels
+
+	* main/sniffer.c: Add autocomplete for CLI command 'sniffer stop'.
+
+2009-02-12 19:35  eliels
+
+	* main/sniffer.c: Fix an error in macosx while opening a device for
+	  sniffing.
+
+2009-02-12 18:25  eliels
+
+	* include/locust/packet.h, main/packet.c, main/sniffer.c: Start
+	  parsing the received packet and populate a lct_packet structure
+	  with the content.
+
+2009-02-12 15:32  eliels
+
+	* include/locust/cli.h, include/locust/sniffer.h, main/cli.c,
+	  main/sniffer.c: Implement the initial code for managing sniffers
+	  in locust.
+
+2009-02-11 13:31  eliels
+
+	* libs/libedit/src/vi.c: Fix a compile error in FreeBSD.
+
+2009-02-10 12:47  eliels
+
+	* main/sniffer.c: Fix a compile error! ups...
+
+2009-02-10 12:43  eliels
+
+	* include/locust/_private.h, include/locust/sniffer.h,
+	  main/locust.c, main/sniffer.c: More additions to the sniffer
+	  subsystem.
+
+2009-02-09 19:50  eliels
+
+	* configure, configure.ac, include/locust/sniffer.h,
+	  main/Makefile.am, main/Makefile.in, main/sniffer.c: Implement the
+	  initial version of the sniffer.
+
+2009-02-09 19:49  eliels
+
+	* include/locust.h: Add devices autocompletion to the header files
+
+2009-02-09 19:46  eliels
+
+	* main/locust.c, main/packet.c: Implement network devices
+	  autocomplete.
+
+2009-02-09 19:45  eliels
+
+	* main/netutils.c: Remove duplicated documentation.
+
+2009-02-09 19:44  eliels
+
+	* main/socket.c: Check for errors when calling pcap_open_live.
+
+2009-02-09 16:50  eliels
+
+	* main/socket.c: No pcap timeout.
+
+2009-02-09 15:43  eliels
+
+	* main/socket.c: Fix a compile warning.
+
+2009-02-09 15:32  eliels
+
+	* include/locust/socket.h, main/packet.c, main/socket.c,
+	  main/udp.c: Abstract the sendto and write operation on
+	  lct_sockets
+
+2009-02-09 15:16  eliels
+
+	* include/locust.h, include/locust/socket.h, main/Makefile.am,
+	  main/Makefile.in, main/packet.c, main/socket.c: Start using
+	  libpcap for sending raw packets.
+
+2009-02-09 14:32  eliels
+
+	* Makefile.in, configure, configure.ac,
+	  include/locust/autoconfig.h.in, libs/libpcap,
+	  libs/libpcap/CHANGES, libs/libpcap/CREDITS,
+	  libs/libpcap/ChmodBPF, libs/libpcap/ChmodBPF/ChmodBPF,
+	  libs/libpcap/ChmodBPF/StartupParameters.plist,
+	  libs/libpcap/INSTALL.txt, libs/libpcap/LICENSE,
+	  libs/libpcap/Makefile.in, libs/libpcap/README,
+	  libs/libpcap/README.Win32, libs/libpcap/README.aix,
+	  libs/libpcap/README.dag, libs/libpcap/README.hpux,
+	  libs/libpcap/README.linux, libs/libpcap/README.macosx,
+	  libs/libpcap/README.septel, libs/libpcap/README.sita,
+	  libs/libpcap/README.tru64, libs/libpcap/SUNOS4,
+	  libs/libpcap/SUNOS4/nit_if.o.sparc,
+	  libs/libpcap/SUNOS4/nit_if.o.sun3,
+	  libs/libpcap/SUNOS4/nit_if.o.sun4c.4.0.3c, libs/libpcap/TODO,
+	  libs/libpcap/VERSION, libs/libpcap/Win32,
+	  libs/libpcap/Win32/Include, libs/libpcap/Win32/Include/Gnuc.h,
+	  libs/libpcap/Win32/Include/addrinfo.h,
+	  libs/libpcap/Win32/Include/arpa,
+	  libs/libpcap/Win32/Include/arpa/nameser.h,
+	  libs/libpcap/Win32/Include/bittypes.h,
+	  libs/libpcap/Win32/Include/cdecl_ext.h,
+	  libs/libpcap/Win32/Include/inetprivate.h,
+	  libs/libpcap/Win32/Include/ip6_misc.h,
+	  libs/libpcap/Win32/Include/net,
+	  libs/libpcap/Win32/Include/net/if.h,
+	  libs/libpcap/Win32/Include/net/netdb.h,
+	  libs/libpcap/Win32/Include/net/paths.h,
+	  libs/libpcap/Win32/Include/sockstorage.h, libs/libpcap/Win32/Prj,
+	  libs/libpcap/Win32/Prj/libpcap.dsp,
+	  libs/libpcap/Win32/Prj/libpcap.dsw, libs/libpcap/Win32/Src,
+	  libs/libpcap/Win32/Src/ffs.c,
+	  libs/libpcap/Win32/Src/gai_strerror.c,
+	  libs/libpcap/Win32/Src/getaddrinfo.c,
+	  libs/libpcap/Win32/Src/getnetbynm.c,
+	  libs/libpcap/Win32/Src/getnetent.c,
+	  libs/libpcap/Win32/Src/getopt.c,
+	  libs/libpcap/Win32/Src/getservent.c,
+	  libs/libpcap/Win32/Src/inet_aton.c,
+	  libs/libpcap/Win32/Src/inet_net.c,
+	  libs/libpcap/Win32/Src/inet_pton.c, libs/libpcap/acconfig.h,
+	  libs/libpcap/aclocal.m4, libs/libpcap/arcnet.h,
+	  libs/libpcap/atmuni31.h, libs/libpcap/bpf, libs/libpcap/bpf/net,
+	  libs/libpcap/bpf/net/bpf_filter.c, libs/libpcap/bpf_dump.c,
+	  libs/libpcap/bpf_filter.c, libs/libpcap/bpf_image.c,
+	  libs/libpcap/chmod_bpf, libs/libpcap/config.guess,
+	  libs/libpcap/config.h.in, libs/libpcap/config.sub,
+	  libs/libpcap/configure, libs/libpcap/configure.in,
+	  libs/libpcap/dlpisubs.c, libs/libpcap/dlpisubs.h,
+	  libs/libpcap/etherent.c, libs/libpcap/ethertype.h,
+	  libs/libpcap/fad-getad.c, libs/libpcap/fad-gifc.c,
+	  libs/libpcap/fad-glifc.c, libs/libpcap/fad-null.c,
+	  libs/libpcap/fad-sita.c, libs/libpcap/fad-win32.c,
+	  libs/libpcap/filtertest.c, libs/libpcap/findalldevstest.c,
+	  libs/libpcap/gencode.c, libs/libpcap/gencode.h,
+	  libs/libpcap/grammar.y, libs/libpcap/ieee80211.h,
+	  libs/libpcap/inet.c, libs/libpcap/install-sh, libs/libpcap/lbl,
+	  libs/libpcap/lbl/os-aix4.h, libs/libpcap/lbl/os-hpux11.h,
+	  libs/libpcap/lbl/os-osf4.h, libs/libpcap/lbl/os-osf5.h,
+	  libs/libpcap/lbl/os-solaris2.h, libs/libpcap/lbl/os-sunos4.h,
+	  libs/libpcap/lbl/os-ultrix4.h, libs/libpcap/llc.h,
+	  libs/libpcap/missing, libs/libpcap/missing/snprintf.c,
+	  libs/libpcap/mkdep, libs/libpcap/msdos,
+	  libs/libpcap/msdos/bin2c.c, libs/libpcap/msdos/common.dj,
+	  libs/libpcap/msdos/makefile, libs/libpcap/msdos/makefile.dj,
+	  libs/libpcap/msdos/makefile.wc, libs/libpcap/msdos/ndis2.c,
+	  libs/libpcap/msdos/ndis2.h, libs/libpcap/msdos/ndis_0.asm,
+	  libs/libpcap/msdos/pkt_rx0.asm, libs/libpcap/msdos/pkt_rx1.s,
+	  libs/libpcap/msdos/pktdrvr.c, libs/libpcap/msdos/pktdrvr.h,
+	  libs/libpcap/msdos/readme.dos, libs/libpcap/nametoaddr.c,
+	  libs/libpcap/net, libs/libpcap/net/bpf_filter.c,
+	  libs/libpcap/nlpid.h, libs/libpcap/optimize.c,
+	  libs/libpcap/org.tcpdump.chmod_bpf.plist, libs/libpcap/packaging,
+	  libs/libpcap/packaging/pcap.spec.in, libs/libpcap/pcap,
+	  libs/libpcap/pcap-bpf.c, libs/libpcap/pcap-bpf.h,
+	  libs/libpcap/pcap-bt-linux.c, libs/libpcap/pcap-bt-linux.h,
+	  libs/libpcap/pcap-config.1, libs/libpcap/pcap-config.in,
+	  libs/libpcap/pcap-dag.c, libs/libpcap/pcap-dag.h,
+	  libs/libpcap/pcap-dlpi.c, libs/libpcap/pcap-dos.c,
+	  libs/libpcap/pcap-dos.h, libs/libpcap/pcap-enet.c,
+	  libs/libpcap/pcap-filter.manmisc.in, libs/libpcap/pcap-int.h,
+	  libs/libpcap/pcap-libdlpi.c,
+	  libs/libpcap/pcap-linktype.manmisc.in, libs/libpcap/pcap-linux.c,
+	  libs/libpcap/pcap-namedb.h, libs/libpcap/pcap-nit.c,
+	  libs/libpcap/pcap-null.c, libs/libpcap/pcap-pf.c,
+	  libs/libpcap/pcap-savefile.manfile.in,
+	  libs/libpcap/pcap-septel.c, libs/libpcap/pcap-septel.h,
+	  libs/libpcap/pcap-sita.c, libs/libpcap/pcap-sita.h,
+	  libs/libpcap/pcap-sita.html, libs/libpcap/pcap-snit.c,
+	  libs/libpcap/pcap-snoop.c, libs/libpcap/pcap-stdinc.h,
+	  libs/libpcap/pcap-usb-linux.c, libs/libpcap/pcap-usb-linux.h,
+	  libs/libpcap/pcap-win32.c, libs/libpcap/pcap.3pcap.in,
+	  libs/libpcap/pcap.c, libs/libpcap/pcap.h,
+	  libs/libpcap/pcap/bluetooth.h, libs/libpcap/pcap/bpf.h,
+	  libs/libpcap/pcap/namedb.h, libs/libpcap/pcap/pcap.h,
+	  libs/libpcap/pcap/sll.h, libs/libpcap/pcap/usb.h,
+	  libs/libpcap/pcap/vlan.h, libs/libpcap/pcap_activate.3pcap,
+	  libs/libpcap/pcap_breakloop.3pcap,
+	  libs/libpcap/pcap_can_set_rfmon.3pcap,
+	  libs/libpcap/pcap_close.3pcap,
+	  libs/libpcap/pcap_compile.3pcap.in,
+	  libs/libpcap/pcap_create.3pcap,
+	  libs/libpcap/pcap_datalink.3pcap.in,
+	  libs/libpcap/pcap_datalink_name_to_val.3pcap,
+	  libs/libpcap/pcap_datalink_val_to_name.3pcap,
+	  libs/libpcap/pcap_dump.3pcap, libs/libpcap/pcap_dump_close.3pcap,
+	  libs/libpcap/pcap_dump_file.3pcap,
+	  libs/libpcap/pcap_dump_flush.3pcap,
+	  libs/libpcap/pcap_dump_ftell.3pcap,
+	  libs/libpcap/pcap_dump_open.3pcap.in,
+	  libs/libpcap/pcap_file.3pcap, libs/libpcap/pcap_fileno.3pcap,
+	  libs/libpcap/pcap_findalldevs.3pcap,
+	  libs/libpcap/pcap_free_datalinks.3pcap,
+	  libs/libpcap/pcap_freealldevs.3pcap,
+	  libs/libpcap/pcap_freecode.3pcap,
+	  libs/libpcap/pcap_get_selectable_fd.3pcap,
+	  libs/libpcap/pcap_geterr.3pcap, libs/libpcap/pcap_inject.3pcap,
+	  libs/libpcap/pcap_is_swapped.3pcap,
+	  libs/libpcap/pcap_lib_version.3pcap,
+	  libs/libpcap/pcap_list_datalinks.3pcap.in,
+	  libs/libpcap/pcap_lookupdev.3pcap,
+	  libs/libpcap/pcap_lookupnet.3pcap, libs/libpcap/pcap_loop.3pcap,
+	  libs/libpcap/pcap_major_version.3pcap,
+	  libs/libpcap/pcap_next_ex.3pcap,
+	  libs/libpcap/pcap_offline_filter.3pcap,
+	  libs/libpcap/pcap_open_dead.3pcap.in,
+	  libs/libpcap/pcap_open_live.3pcap,
+	  libs/libpcap/pcap_open_offline.3pcap.in,
+	  libs/libpcap/pcap_set_buffer_size.3pcap,
+	  libs/libpcap/pcap_set_datalink.3pcap,
+	  libs/libpcap/pcap_set_promisc.3pcap,
+	  libs/libpcap/pcap_set_rfmon.3pcap,
+	  libs/libpcap/pcap_set_snaplen.3pcap,
+	  libs/libpcap/pcap_set_timeout.3pcap,
+	  libs/libpcap/pcap_setdirection.3pcap,
+	  libs/libpcap/pcap_setfilter.3pcap,
+	  libs/libpcap/pcap_setnonblock.3pcap,
+	  libs/libpcap/pcap_snapshot.3pcap, libs/libpcap/pcap_stats.3pcap,
+	  libs/libpcap/pcap_statustostr.3pcap,
+	  libs/libpcap/pcap_strerror.3pcap, libs/libpcap/ppp.h,
+	  libs/libpcap/runlex.sh, libs/libpcap/savefile.c,
+	  libs/libpcap/scanner.l, libs/libpcap/sunatmpos.h,
+	  main/Makefile.am, main/Makefile.in, modules/scanners/Makefile.in,
+	  modules/wordlists/Makefile.in: Libpcap configuration setup and
+	  code.
+
+2009-02-08 02:57  eliels
+
+	* include/locust/bpf.h, main/Makefile.am, main/Makefile.in,
+	  main/bpf.c: Remove the bpf code, i am not going to start a new
+	  library for doing this
+	  I will just use libpcap.
+
+2009-02-06 19:34  eliels
+
+	* main/bpf.c: Fix compile errors! grgrrgr. this should not happen
+	  anymore!
+
+2009-02-06 19:28  eliels
+
+	* configure, include/locust/autoconfig.h.in, main/Makefile.in:
+	  Generate the configure script based on the last changes to
+	  configure.ac to
+	  detect a bpf device.
+
+2009-02-06 19:26  eliels
+
+	* configure.ac, include/locust/bpf.h, main/Makefile.am, main/bpf.c:
+	  BPF initial import.
+
+2009-02-06 18:24  eliels
+
+	* include/locust/packet.h: Modify the max packet len and use the
+	  ethernet lenght
+
+2009-02-06 18:22  eliels
+
+	* main/ethernet.c: Check for errors when modifying the header mac
+	  address.
+
+2009-02-06 18:15  eliels
+
+	* main/socket.c: Show in a simple way what we are doing in the
+	  code.
+
+2009-02-06 18:08  eliels
+
+	* include/locust/socket.h, main/socket.c: Remove unnecesary
+	  definitions.
+
+2009-02-06 15:41  eliels
+
+	* include/locust/packet.h, main/ip.c, main/thread.c: Fix doxygen
+	  warnings
+
+2009-02-06 15:31  eliels
+
+	* main/tcp.c: Fix the TCP checksum calculation
+
+2009-02-06 15:31  eliels
+
+	* main/ip.c: Instead of doing it manually use the new API
+	  lct_packet_len to calculate the
+	  packet lenght
+
+2009-02-06 15:30  eliels
+
+	* main/packet.c: Check packet size when adding a new header.
+
+2009-02-06 15:03  eliels
+
+	* main/packet.c: Remove trailing white spaces.
+
+2009-02-06 14:51  eliels
+
+	* include/locust/packet.h, main/packet.c: Make packet_len part of
+	  the packet API.
+
+2009-02-06 14:39  eliels
+
+	* include/locust/ip.h, include/locust/packet.h, main/ip.c,
+	  main/packet.c, main/socket.c, main/tcp.c, main/udp.c: Implement
+	  the ipv6 header injector (only allow on ethernet headers).
+
+2009-02-05 01:57  eliels
+
+	* main/cli.c, main/scanner.c, main/tcp.c, main/udp.c: Avoid
+	  compiler warning (also in threads call return!).
+
+2009-02-05 01:38  eliels
+
+	* main/Makefile.am, main/Makefile.in: Only pass the linker option
+	  when linking to avoid a warning message.
+
+2009-02-05 01:30  eliels
+
+	* main/netutils.c: Make addrinfocmp support IPv6.
+
+2009-02-05 01:25  eliels
+
+	* main/tcp.c, main/udp.c: Make incoming connections also support
+	  IPv6
+
+2009-02-05 00:57  eliels
+
+	* README: Add new feature to the list.
+
+2009-02-05 00:52  eliels
+
+	* main/tcp.c: This include is not neccesary, use the standard
+
+2009-02-05 00:48  eliels
+
+	* include/locust/socket.h, main/packet.c, main/socket.c,
+	  main/tcp.c, main/udp.c, modules/scanners/udp_scan.c: Implement
+	  IPv6 support
+	  Fix some OpenBSD warnings.
+
+2009-02-04 10:42  eliels
+
+	* Makefile.in, configure, configure.ac, main/Makefile.am,
+	  main/Makefile.in, modules/scanners/Makefile.in,
+	  modules/wordlists/Makefile.in: Make it compile in MacOSX again.
+
+2009-02-04 10:33  eliels
+
+	* main/Makefile.am, main/Makefile.in: Make the compiler option BSD
+	  compatible.
+
+2009-02-04 01:38  eliels
+
+	* libs/libedit/src/unvis.c, libs/libedit/src/vis.c, main/cli.c,
+	  main/ethernet.c, main/icmp.c, main/ip.c, main/simclist.c: Fix
+	  some compiler warnings under OpenBSD.
+
+2009-02-04 01:26  eliels
+
+	* modules/scanners/Makefile.am, modules/scanners/Makefile.in,
+	  modules/wordlists/Makefile.am, modules/wordlists/Makefile.in: Use
+	  wildcards instead of specifying each module name inside the
+	  Makefile.
+
+2009-02-03 23:59  eliels
+
+	* configure, main/Makefile.am, main/Makefile.in: Remove CFLAG "-dH"
+
+2009-02-03 23:54  eliels
+
+	* Makefile.in, main/Makefile.am, main/Makefile.in,
+	  modules/scanners/Makefile.in, modules/wordlists/Makefile.in:
+	  Remove -ldl from the LD options
+
+2009-02-03 23:45  eliels
+
+	* libs/libconfig/Makefile.in, libs/libconfig/aclocal.m4,
+	  libs/libconfig/configure, libs/libconfig/configure.ac,
+	  libs/libconfig/doc/Makefile.in,
+	  libs/libconfig/samples/Makefile.in,
+	  libs/libconfig/samples/c++/Makefile.in,
+	  libs/libconfig/samples/c/Makefile.in: Remove gcc flag to allow
+	  this code compile in OpenBSD.
+
+2009-02-03 23:27  eliels
+
+	* libs/libedit/Makefile.in, libs/libedit/aclocal.m4,
+	  libs/libedit/config.h.in, libs/libedit/configure,
+	  libs/libedit/configure.ac, libs/libedit/doc/Makefile.in,
+	  libs/libedit/examples/Makefile.in, libs/libedit/src/Makefile.in:
+	  Check for vis and unvis functions
+
+2009-02-03 20:36  eliels
+
+	* missing: Miss the missing file :)
+
+2009-02-03 20:34  eliels
+
+	* main/Makefile.in, modules/scanners/Makefile.in,
+	  modules/wordlists/Makefile.in: Also include Makefile.in files to
+	  the repo
+
+2009-02-03 20:32  eliels
+
+	* Makefile.in, config.guess, config.sub, configure, depcomp,
+	  install-sh: Import ./bootstrap result files.
+
+2009-02-03 12:58  eliels
+
+	* modules/scanners/connect_scan.c, modules/scanners/udp_scan.c:
+	  Modify scanner CLI commands to group them in another way.
+	  scan <protocol> <type of scan>
+	  scan thread <protocol> <type of scan>
+
+2009-02-03 12:44  eliels
+
+	* main/udp.c: More doxygen documentation
+
+2009-02-03 02:35  eliels
+
+	* include/locust/packet.h: Fix minor docs typos.
+
+2009-02-03 02:32  eliels
+
+	* main/locust.c: Make the thread pointer static
+
+2009-02-03 02:30  eliels
+
+	* include/locust/socket.h, main/icmp.c, main/thread.c,
+	  main/version.c: More doxygen documentation
+
+2009-02-03 02:21  eliels
+
+	* include/locust/packet.h, include/locust/simclist.h,
+	  include/locust/thread.h, main/config.c, main/loader.c,
+	  main/scanner.c, main/simclist.c,
+	  modules/wordlists/wordlist_file.c: Add more and more doxygen
+	  documentation.
+
+2009-02-03 01:41  eliels
+
+	* main/packet.c: Add missing doxygen documentation.
+
+2009-02-03 01:32  eliels
+
+	* main/cli.c: Fix some locking issues.
+
+2009-02-03 01:28  eliels
+
+	* main/logger.c: Unlock the loggers list if we dont find the logger
+	  driver.
+
+2009-02-03 01:14  eliels
+
+	* main/tcp.c: Add more doxygen documentation.
+
+2009-02-02 16:54  eliels
+
+	* include/locust/scanner.h, main/scanner.c: Move the scanner
+	  subsystem host to start using simclist for managing the list of
+	  scanners instead of doing it manually.
+
+2009-02-02 15:05  eliels
+
+	* main/scanner.c: Add more documentation to the scanner subsystem.
+
+2009-02-02 14:51  eliels
+
+	* main/packet.c: Fix file indentation/code style.
+
+2009-02-02 14:50  eliels
+
+	* main/packet.c: Implement CLI command 'packet release'
+	  autocomplete.
+
+2009-02-01 20:49  eliels
+
+	* main/udp.c: Implement autocomplete for CLI commands:
+	  'udp close' and 'udp send'.
+
+2009-02-01 20:43  eliels
+
+	* include/locust/socket.h, main/socket.c, main/tcp.c: Implement CLI
+	  command autocomplete for:
+	  'tcp connect' and 'tcp close'
+
+2009-02-01 20:21  eliels
+
+	* main/socket.c: This is not a module...
+
+2009-02-01 20:21  eliels
+
+	* main/socket.c: More code documentation
+
+2009-02-01 20:14  eliels
+
+	* include/locust/logger.h, include/locust/packet.h,
+	  include/locust/socket.h, main/locust.c: Update the locust doxygen
+	  documentation.
+
+2009-02-01 19:55  eliels
+
+	* DoxyFile: This is the complete project name
+
+2009-02-01 19:53  eliels
+
+	* main/cli.c: Implement CLI command 'repeat <ntimes> <command>' to
+	  run a CLI command multiple
+	  times.
+
+2009-02-01 19:51  eliels
+
+	* main/packet.c: Release the created socket when not used anymore.
+
+2009-02-01 19:08  eliels
+
+	* main/packet.c: Fix the error message
+
+2009-02-01 18:35  eliels
+
+	* main/icmp.c: Fix the ICMP packet modifier
+
+2009-02-01 18:29  eliels
+
+	* main/socket.c: It is not neccesary to populate twice the
+	  sockaddr_in structure.
+
+2009-02-01 18:28  eliels
+
+	* main/udp.c: Fix the udp packet checksum.
+
+2009-02-01 18:17  eliels
+
+	* main/socket.c: Set IP_HDRINCL in IPPROTO_IP
+
+2009-02-01 04:43  eliels
+
+	* main/ip.c: Print the header len in host byte order.
+
+2009-01-30 18:07  eliels
+
+	* main/packet.c: Only allow low level packet forging if running as
+	  root.
+
+2009-01-30 17:59  eliels
+
+	* main/ethernet.c, main/packet.c, main/socket.c: Rigth now low
+	  level ethernet packet forging is not working under Darwin.
+
+2009-01-30 15:55  eliels
+
+	* main/socket.c: Do no set the IP_HDRINCL option when creating a
+	  low level raw socket.
+
+2009-01-30 04:37  eliels
+
+	* main/tcp.c, main/udp.c: Rename the pseudo headers for each
+	  protocol
+
+2009-01-30 03:14  eliels
+
+	* include/locust/_private.h, include/locust/packet.h,
+	  include/locust/socket.h, main/Makefile.am, main/ethernet.c,
+	  main/ip.c, main/locust.c, main/packet.c, main/socket.c: Implement
+	  low level packet forging (ethernet packet).
+	  Fix ip checksum calc.
+
+2009-01-29 14:47  eliels
+
+	* main/ip.c: Make the header_modifiers static to the ip subsystem
+
+2009-01-29 04:48  eliels
+
+	* include/locust/netutils.h, main/ip.c, main/netutils.c,
+	  main/tcp.c, main/udp.c: Calculate the TCP and UDP header
+	  checksums in the right way using the pseudo header.
+
+2009-01-28 23:53  eliels
+
+	* main/packet.c: Simplify the function, removing not needed elseif
+	  blocks.
+
+2009-01-28 23:43  eliels
+
+	* main/packet.c: - Add autocomplete for CLI command 'packet send'.
+
+2009-01-28 23:39  eliels
+
+	* include/locust/cli.h, include/locust/ip.h,
+	  include/locust/netutils.h, include/locust/packet.h, main/ip.c,
+	  main/packet.c, main/tcp.c, main/udp.c: - Fix the TCP header
+	  checksum.
+	  - Add more Doxygen documentation.
+
+2009-01-28 21:53  eliels
+
+	* main/socket.c: Set a socket option to make sure that the kernels
+	  know we are going to provide the headers.
+
+2009-01-28 21:29  eliels
+
+	* main/packet.c: More autocomplete for CLI commands 'packet *'.
+
+2009-01-28 15:42  eliels
+
+	* include/locust/cli.h, main/cli.c, main/packet.c, main/socket.c:
+	  Implement CLI command autocomplete.
+
+2009-01-28 00:05  eliels
+
+	* main/packet.c: Implement a part of the 'packet modify' CLI
+	  command autocomplete
+
+2009-01-27 15:30  eliels
+
+	* include/locust/cli.h, main/cli.c, main/packet.c: Pass the array
+	  to the completion function instead of the string.
+
+2009-01-27 15:22  eliels
+
+	* include/locust/cli.h, main/cli.c, main/packet.c: Fix the
+	  autocomplete mechanism passing the word to autocomplete to the
+	  completion function.
+
+2009-01-27 14:48  eliels
+
+	* README: Add the new packet forging feature.
+
+2009-01-27 14:44  eliels
+
+	* main/cli.c: Also call the autocomplete for every command that
+	  match what we are trying to complete.
+
+2009-01-27 04:20  eliels
+
+	* main/icmp.c: Avoid compilation errors.
+
+2009-01-27 04:14  eliels
+
+	* main/tcp.c: Do not print the options and extra padding, right now
+	  that we have no tcp options support.
+
+2009-01-27 04:10  eliels
+
+	* main/ip.c, main/tcp.c: - Fix the TCP header offset setting.
+	  - TCP offset value start with 5.
+
+2009-01-27 03:54  eliels
+
+	* include/locust/packet.h, main/icmp.c, main/ip.c, main/packet.c,
+	  main/tcp.c, main/udp.c: Implement the header modification
+	  technics.
+
+2009-01-27 00:09  eliels
+
+	* main/ip.c: - Set the IP version (4) when injecting the packet
+	  header.
+
+2009-01-27 00:02  eliels
+
+	* include/locust/socket.h, main/socket.c: Rename the
+	  lct_socket_raw() parameter (it is a hostname, not an ip).
+
+2009-01-27 00:01  eliels
+
+	* include/locust/packet.h, main/ip.c, main/packet.c, main/socket.c:
+	  Implement the CLI command 'packet send' to send a created packet
+	  to a destination host.
+
+2009-01-26 22:50  eliels
+
+	* main/icmp.c: Implement the ICMP injector updater.
+
+2009-01-26 22:42  eliels
+
+	* include/locust/_private.h, main/Makefile.am, main/icmp.c,
+	  main/ip.c, main/locust.c, main/packet.c, main/tcp.c, main/udp.c:
+	  - Make packet dumps look continuos.
+	  - Update the ip checksum and the ip length.
+	  - Implement the ICMP packet injector.
+
+2009-01-26 22:40  eliels
+
+	* main/packet.c: Simplify the 'packet show' CLI command.
+
+2009-01-26 22:40  eliels
+
+	* main/socket.c: Fix a wrong error message.
+
+2009-01-26 21:15  eliels
+
+	* main/cli.c: Prevent a buffer overflow while joining the
+	  arguments.
+
+2009-01-26 21:11  eliels
+
+	* main/cli.c: Simplify the command completion fixing a bug when
+	  trying to compile commands like:
+	  packet inject
+	  packet injector show
+	  The 'show' word was being autocompleted when autocompleting
+	  'packet inject'
+
+2009-01-26 19:55  eliels
+
+	* main/tcp.c, main/udp.c: Make struct tcphdr and udphdr compatible
+	  with BSD style
+
+2009-01-26 19:54  eliels
+
+	* main/ip.c: Fix an invalid format.
+
+2009-01-26 19:51  eliels
+
+	* include/locust/packet.h: Missing packet subsystem header file.
+
+2009-01-26 19:44  eliels
+
+	* include/locust/_private.h, include/locust/netutils.h,
+	  include/locust/socket.h, main/Makefile.am, main/ip.c,
+	  main/locust.c, main/netutils.c, main/packet.c, main/socket.c,
+	  main/tcp.c, main/udp.c: Initial packet injector version (start
+	  creating packets, so then we will be able to send them)
+
+2009-01-24 23:04  eliels
+
+	* main/cli.c: Do not destroy the string we are trying to
+	  autocomplete.
+
+2009-01-24 21:51  eliels
+
+	* include/locust/cli.h, main/cli.c, main/loader.c, main/locust.c,
+	  main/socket.c, main/tcp.c, main/thread.c, main/udp.c,
+	  main/wordlist.c, modules/scanners/connect_scan.c,
+	  modules/scanners/udp_scan.c, modules/wordlists/wordlist_file.c:
+	  Implement internal command completion.
+
+2009-01-24 21:27  eliels
+
+	* include/locust.h, main/cli.c: Implement CLI command completion.
+
+2009-01-24 21:26  eliels
+
+	* main/locust.c: Do not give up executing the CLI commands until
+	  all the commands ';' separated are executed.
+
+2009-01-23 00:18  eliels
+
+	* include/locust/wordlist.h, main/wordlist.c,
+	  modules/wordlists/wordlist_file.c: The wordlist driver structure
+	  is not constant, we need to modify its refcounter.
+
+2009-01-22 23:55  eliels
+
+	* DoxyFile: Add the modules directory to the doxygen documentation.
+
+2009-01-22 23:52  eliels
+
+	* README: Update the locust FEATURES
+
+2009-01-22 23:52  eliels
+
+	* include/locust/wordlist.h, main/wordlist.c,
+	  modules/wordlists/wordlist_file.c: Complete the wordlist support,
+	  and finish the first wordlist driver (file).
+
+2009-01-22 23:50  eliels
+
+	* modules/scanners/udp_scan.c: Avoid compiler warnings if we are
+	  trying to compile this module in Mac OSX
+
+2009-01-22 23:49  eliels
+
+	* main/cli.c, main/logger.c: If we can't unregister a CLI command
+	  or a logger, just return 0, it is not an
+	  important problem if we don't find what we are trying to
+	  unregister.
+
+2009-01-22 23:47  eliels
+
+	* main/socket.c: Put the functions in order.
+
+2009-01-22 23:45  eliels
+
+	* include/locust/thread.h, main/thread.c: Add lct_mutex_destroy()
+	  to the locust locking API.
+
+2009-01-22 23:44  eliels
+
+	* main/locust.c: Remove not needed header.
+
+2009-01-19 02:25  eliels
+
+	* main/wordlist.c: Implement CLI command 'wordlist show' to show
+	  all the wordlists registered.
+
+2009-01-19 02:17  eliels
+
+	* include/locust/wordlist.h, main/wordlist.c,
+	  modules/wordlists/wordlist_file.c: Implement the wordlist main
+	  API _init, _next and _finish.
+
+2009-01-19 01:48  eliels
+
+	* Makefile.am, configure.ac, include/locust/_private.h,
+	  include/locust/wordlist.h, main/Makefile.am, main/locust.c,
+	  main/wordlist.c, modules/wordlists,
+	  modules/wordlists/Makefile.am, modules/wordlists/wordlist_file.c:
+	  Initial wordlist subsystem structure.
+
+2009-01-18 22:38  eliels
+
+	* include/locust/socket.h, main/socket.c: Move the socket list to
+	  start using simclist to manipulate the list abstract data
+	  structure.
+
+2009-01-18 03:01  eliels
+
+	* include/locust/cli.h, main/cli.c: Move the cli commands code to
+	  start using simclist for list manipulation
+
+2009-01-18 02:59  eliels
+
+	* Makefile.modules: simclist needs to be compiled with -std=c99
+
+2009-01-18 01:16  eliels
+
+	* include/locust/logger.h, main/logger.c: Move the logger code to
+	  start using simclist.
+
+2009-01-17 18:12  eliels
+
+	* include/locust.h, main/loader.c, main/socket.c: Move the loader
+	  list implementation to simclist.
+
+2009-01-17 03:13  eliels
+
+	* include/locust/simclist.h, include/locust/socket.h,
+	  main/Makefile.am, main/simclist.c, main/socket.c: Add SimClist to
+	  the source, this simple C library manages linkedlist in a simple
+	  way.
+	  Start using simclist for the hosts linked list.
+
+2009-01-16 18:55  eliels
+
+	* main/tcp.c: more doxygen documentation.
+
+2009-01-16 18:54  eliels
+
+	* configure.ac: Use tabs instead of spaces!
+
+2009-01-16 18:45  eliels
+
+	* modules/scanners/udp_scan.c: minor changes to the code formatting
+	  (I like beautiful code).
+
+2009-01-16 18:34  eliels
+
+	* modules/scanners/Makefile.am, modules/scanners/connect_scan.c,
+	  modules/scanners/full_scan.c: Rename the full_scan scanner module
+	  to connect_scan to represent more, what will do.
+
+2009-01-16 18:21  eliels
+
+	* main/config.c: Add more documentation.
+
+2009-01-16 18:11  eliels
+
+	* DoxyFile: Remove obsolete configuration parameters.
+
+2009-01-16 15:31  eliels
+
+	* main/socket.c: If no filter is specified when showing ports, just
+	  print '# ports'
+
+2009-01-16 15:29  eliels
+
+	* main/socket.c: Print the ports count when showing the ports for a
+	  specified host.
+
+2009-01-16 15:25  eliels
+
+	* main/loader.c: Save into name only the modulename and inside
+	  filename the full path.
+
+2009-01-16 14:27  eliels
+
+	* README: Finish another task from the TODO list.
+
+2009-01-16 14:24  eliels
+
+	* include/locust/compat.h, main/loader.c: Load every module (*.so)
+	  inside the modules directory.
+
+2009-01-16 14:06  eliels
+
+	* README: Finish a task from the TODO list.
+
+2009-01-16 13:08  eliels
+
+	* main/logger.c: Add missing comment.
+
+2009-01-16 11:09  eliels
+
+	* main/cli.c: Always save the command to the history no matter what
+	  the user typed.
+
+2009-01-16 11:07  eliels
+
+	* include/locust/cli.h, main/cli.c, main/locust.c: Set the console
+	  logging level using a shell parameter.
+
+2009-01-16 10:54  eliels
+
+	* include/locust/config.h, locust.conf.in, main/tcp.c, main/udp.c:
+	  - Add new config paramater max_bind_connections for the core TCP
+	  bind.
+	  - Move .conf comments to C multiline form. /* */
+
+2009-01-16 10:53  eliels
+
+	* main/locust.c: Avoid a compiler warning.
+
+2009-01-16 10:42  eliels
+
+	* main/config.c: Do not initialize variables that don't need to be
+	  initialized.
+
+2009-01-16 10:42  eliels
+
+	* main/socket.c: Show the possible running service in the command
+	  output 'host show ports'
+
+2009-01-16 03:15  eliels
+
+	* include/locust/config.h, locust.conf.in, main/thread.c: Instead
+	  of harcoding the max number of threads per level to allow, put
+	  that in the configuration file.
+
+2009-01-16 03:00  eliels
+
+	* main/cli.c: Fix two doxygen warnings.
+
+2009-01-16 02:55  eliels
+
+	* Makefile.modules, configure.ac, include/locust/_private.h,
+	  include/locust/config.h, include/locust/logger.h, libs/libconfig,
+	  libs/libconfig/AUTHORS, libs/libconfig/COPYING.LIB,
+	  libs/libconfig/ChangeLog, libs/libconfig/INSTALL,
+	  libs/libconfig/Makefile.am, libs/libconfig/Makefile.in,
+	  libs/libconfig/NEWS, libs/libconfig/README, libs/libconfig/TODO,
+	  libs/libconfig/ac_config.h.in, libs/libconfig/aclocal.m4,
+	  libs/libconfig/compile, libs/libconfig/config.guess,
+	  libs/libconfig/config.sub, libs/libconfig/configure,
+	  libs/libconfig/configure.ac, libs/libconfig/debian,
+	  libs/libconfig/debian/changelog, libs/libconfig/debian/compat,
+	  libs/libconfig/debian/control, libs/libconfig/debian/copyright,
+	  libs/libconfig/debian/libconfigduo2-dev.docs,
+	  libs/libconfig/debian/libconfigduo2-dev.install,
+	  libs/libconfig/debian/libconfigduo2.install,
+	  libs/libconfig/debian/libconfigduo2.postinst,
+	  libs/libconfig/debian/rules, libs/libconfig/debian/shlibs,
+	  libs/libconfig/depcomp, libs/libconfig/doc,
+	  libs/libconfig/doc/LGPL.texi, libs/libconfig/doc/Makefile.am,
+	  libs/libconfig/doc/Makefile.in,
+	  libs/libconfig/doc/libconfig.info,
+	  libs/libconfig/doc/libconfig.texi,
+	  libs/libconfig/doc/texinfo.tex, libs/libconfig/grammar.c,
+	  libs/libconfig/grammar.h, libs/libconfig/grammar.y,
+	  libs/libconfig/install-sh, libs/libconfig/libconfig++.pc.in,
+	  libs/libconfig/libconfig++.vcproj,
+	  libs/libconfig/libconfig++_stub.vcproj,
+	  libs/libconfig/libconfig.c, libs/libconfig/libconfig.h,
+	  libs/libconfig/libconfig.h++, libs/libconfig/libconfig.hh,
+	  libs/libconfig/libconfig.pc.in, libs/libconfig/libconfig.sln,
+	  libs/libconfig/libconfig.spec.in,
+	  libs/libconfig/libconfig.vcproj,
+	  libs/libconfig/libconfig_stub.vcproj,
+	  libs/libconfig/libconfigcpp.c++, libs/libconfig/libconfigcpp.cc,
+	  libs/libconfig/ltmain.sh, libs/libconfig/missing,
+	  libs/libconfig/mkinstalldirs, libs/libconfig/private.h,
+	  libs/libconfig/samples, libs/libconfig/samples/Makefile.am,
+	  libs/libconfig/samples/Makefile.in, libs/libconfig/samples/c,
+	  libs/libconfig/samples/c++,
+	  libs/libconfig/samples/c++/Makefile.am,
+	  libs/libconfig/samples/c++/Makefile.in,
+	  libs/libconfig/samples/c++/sample1.cpp,
+	  libs/libconfig/samples/c++/sample2.cpp,
+	  libs/libconfig/samples/c++/sample3.cpp,
+	  libs/libconfig/samples/c++/stubcpp.cpp,
+	  libs/libconfig/samples/c/Makefile.am,
+	  libs/libconfig/samples/c/Makefile.in,
+	  libs/libconfig/samples/c/sample1.c,
+	  libs/libconfig/samples/c/sample2.c,
+	  libs/libconfig/samples/c/sample3.c,
+	  libs/libconfig/samples/c/stub.c, libs/libconfig/scanner.c,
+	  libs/libconfig/scanner.h, libs/libconfig/scanner.l,
+	  libs/libconfig/test.cfg, libs/libconfig/wincompat.h,
+	  libs/libconfig/ylwrap, locust.conf.in, main/Makefile.am,
+	  main/cli.c, main/config.c, main/loader.c, main/locust.c:
+	  Implement the configuration subsystem to load 'locust.conf' using
+	  libconfig
+
+2009-01-15 21:03  eliels
+
+	* build_scripts/gen_version_h, configure.ac,
+	  include/locust/version.h.in, main/Makefile.am: Generate version.h
+	  from the configure script.
+
+2009-01-15 17:10  eliels
+
+	* configure.ac: Use tabs instead of scapes.
+
+2009-01-15 15:43  eliels
+
+	* main/Makefile.am: Simplify the Makefile
+
+2009-01-15 15:31  eliels
+
+	* main/Makefile.am: Make libedit depend only if it is enabled
+
+2009-01-15 15:03  eliels
+
+	* configure.ac, include/locust/cli.h, main/Makefile.am, main/cli.c:
+	  Add a configure parameter option (libedit-support) so, you can
+	  disable it running:
+	  ./configure --disable-libedit-support
+	  If libedit support is disabled, we won't have a console, only
+	  commands run from the shell parameters.
+
+2009-01-15 15:01  eliels
+
+	* bootstrap: Remove cache files when done.
+
+2009-01-15 01:51  eliels
+
+	* main/loader.c: - Implement command 'modules show'.
+	  - Move mutex locking to lct_mutex_* for future debugging
+	  purposes.
+
+2009-01-14 14:07  eliels
+
+	* main/loader.c: Missing returns on error.
+
+2009-01-14 13:26  eliels
+
+	* Makefile.modules: Make the module compile with the operating
+	  system defined.
+
+2009-01-14 12:38  eliels
+
+	* modules/scanners/udp_scan.c: Do not compile the simle udp scanner
+	  if we are on darwin (MacOSx), because it does not
+	  work as expected.
+
+2009-01-14 12:30  eliels
+
+	* main/thread.c: Reduce the number of threads running to avoid a
+	  bogus condition when running the
+	  scanner.
+
+2009-01-14 02:44  eliels
+
+	* include/locust/thread.h, main/cli.c, main/locust.c,
+	  main/scanner.c, main/tcp.c, main/thread.c, main/udp.c: Implement
+	  threads limits by level.
+
+2009-01-14 01:49  eliels
+
+	* include/locust/thread.h, main/cli.c, main/logger.c,
+	  main/scanner.c, main/socket.c, main/thread.c: Simplify the
+	  locking mechanism.
+
+2009-01-14 01:16  eliels
+
+	* include/locust/thread.h, main/thread.c: Decrease the size of the
+	  lct_lock structure if we are not debugging locks.
+
+2009-01-14 01:06  eliels
+
+	* include/locust/udp.h, main/udp.c: Name the parameter 'hostname'
+	  instead of 'ip'.
+
+2009-01-14 01:03  eliels
+
+	* include/locust/thread.h: use /* */ instead of //
+	  Add more doxygen documentation.
+
+2009-01-13 19:39  eliels
+
+	* include/locust/cli.h, include/locust/socket.h,
+	  include/locust/thread.h, main/Makefile.am, main/cli.c,
+	  main/logger.c, main/scanner.c, main/socket.c, main/thread.c:
+	  Setup a mutex debugging mechanism to debug deadlocks in the
+	  future.
+
+2009-01-13 15:42  eliels
+
+	* main/socket.c: Increment the socket refcount when calling
+	  inc_socket_ref().
+
+2009-01-13 14:15  eliels
+
+	* README: Update the features.
+
+2009-01-13 14:13  eliels
+
+	* modules/scanners/udp_scan.c: Fix the timeout tried by the udp
+	  scanner, instead, connect to a port that will reject the
+	  connection and use
+	  that as the timeout.
+
+2009-01-13 13:48  eliels
+
+	* modules/scanners/udp_scan.c: Include the simple udp scanner
+	  module to the tree.
+
+2009-01-13 13:09  eliels
+
+	* main/scanner.c: Make the scanner run always with threads.
+
+2009-01-13 12:57  eliels
+
+	* main/socket.c: Show the protocol when printing the ports for a
+	  specified host.
+
+2009-01-13 12:47  eliels
+
+	* include/locust/udp.h, main/loader.c, main/udp.c,
+	  modules/scanners/Makefile.am: Implement a simple UDP scanner
+
+2009-01-13 11:09  eliels
+
+	* main/socket.c: When searching a host by hostname, use the
+	  addrinfo instead of a simple ->ip comparison.
+
+2009-01-13 03:37  eliels
+
+	* main/netutils.c: Fix a compile warning if strdupa is not defined
+	  (use lct_strdupa)
+
+2009-01-13 03:36  eliels
+
+	* include/locust/netutils.h, include/locust/socket.h,
+	  main/netutils.c, main/scanner.c, main/socket.c: - Use
+	  getaddrinfo() instead of gethostbyname() because it is not thread
+	  safe.
+	  - Do not wait anymore until all threads finish running.
+
+2009-01-13 01:04  eliels
+
+	* main/scanner.c: Wait until all the scanner threads finish and
+	  report it back.
+
+2009-01-13 00:55  eliels
+
+	* modules/scanners/full_scan.c: Increase the TCP full scan
+	  connection timeout
+
+2009-01-13 00:47  eliels
+
+	* include/locust/netutils.h, include/locust/socket.h,
+	  main/netutils.c, main/socket.c: - Fix a coredump while running
+	  multiple threads and trying to access gethostbyname allocated
+	  memory.
+	  Duplicate hostent to avoid loosing the pointers.
+	  - Compare hostent before creating a new host to check if we are
+	  talking about the same host.
+
+2009-01-12 20:47  eliels
+
+	* main/socket.c: Remove not used variable.
+
+2009-01-12 20:08  eliels
+
+	* main/socket.c: Do not show ports while running 'host show' use
+	  'host show ports' instead.
+
+2009-01-12 20:06  eliels
+
+	* main/socket.c: Make the socket comparison case insensitive.
+	  memcpy the hostentity h_addr.
+
+2009-01-12 19:32  eliels
+
+	* include/locust/port.h, include/locust/socket.h, main/socket.c:
+	  Fix a bug while managing port status inside the host.
+
+2009-01-12 18:25  eliels
+
+	* main/socket.c: Missing unlock on error.
+
+2009-01-12 18:18  eliels
+
+	* include/locust/socket.h, main/socket.c: Error in socket status
+	  definition.
+	  Remove variable not being used.
+
+2009-01-12 15:37  eliels
+
+	* main/socket.c: Release the host after using it.
+
+2009-01-12 14:55  eliels
+
+	* main/scanner.c: Release the scanner when finish using it.
+
+2009-01-12 13:14  eliels
+
+	* configure.ac, include/locust.h, main/Makefile.am, main/thread.c:
+	  Enable some debugging commands and functions, only if
+	  LOCUST_DEBUG is defined, and we
+	  define LOCUST_DEBUG running ./configure --enable-dev-mode
+
+2009-01-12 12:58  eliels
+
+	* main/cli.c: Add a GCC attribute to prevent a warning.
+	  Check the return value of vasprintf.
+
+2009-01-12 12:57  eliels
+
+	* main/socket.c: Not used function.
+
+2009-01-12 11:49  eliels
+
+	* main/socket.c: Pass the hostname instead of the host id to the
+	  'host show' and 'host show ports' CLI commands.
+
+2009-01-12 02:06  eliels
+
+	* main/scanner.c: Inform when finish scanning a host.
+
+2009-01-11 23:21  eliels
+
+	* include/locust.h, include/locust/_private.h,
+	  include/locust/thread.h, main/Makefile.am, main/cli.c,
+	  main/locust.c, main/scanner.c, main/tcp.c, main/thread.c,
+	  main/udp.c, modules/scanners/full_scan.c: Implement a thread
+	  library to manage threads, we have a maximum amount of threads we
+	  are able
+	  to run, if we are trying to run more threads, we delayed the
+	  execution of this threads until the
+	  other threads end running.
+
+2009-01-11 01:21  eliels
+
+	* README: Add some documentation about what we support, what we are
+	  trying to support,
+	  and things to get fixed.
+
+2009-01-11 01:11  eliels
+
+	* main/cli.c: Put something in the prompt to diferentiate between
+	  locust and the shell.
+
+2009-01-11 01:07  eliels
+
+	* main/cli.c, main/logger.c: Disable console_loglevel by default.
+
+2009-01-11 00:16  eliels
+
+	* include/locust/logger.h, main/cli.c, main/locust.c,
+	  main/logger.c: Include locking mechanisms to the logger
+	  subsystem.
+
+2009-01-10 23:57  eliels
+
+	* main/udp.c: Cleanup the output when receiving data using 'udp
+	  bind'.
+
+2009-01-10 23:52  eliels
+
+	* main/udp.c: When using 'udp bind' send udp packets from the same
+	  port we are receiving packets.
+
+2009-01-10 22:59  eliels
+
+	* main/tcp.c, main/udp.c: Fix a 'tcp bind' return value.
+	  Move 'udp bind' to 'udp thread bind'.
+	  Implement 'udp bind'.
+
+2009-01-10 22:25  eliels
+
+	* main/tcp.c: Remove minor space :-)
+
+2009-01-10 22:06  eliels
+
+	* main/cli.c, main/locust.c, main/tcp.c: Fix compile warnings in
+	  darwin (mac osx).
+
+2009-01-10 19:42  eliels
+
+	* main/tcp.c: Implement two tcp binding cli commands:
+	  tcp thread bind (Will bind to the port in background).
+	  tcp bind (will block the console until a connection is accepted).
+
+2009-01-10 18:37  eliels
+
+	* include/locust/cli.h: Over and over again I continue commiting
+	  only part of the repo!!! grggrgrg.
+
+2009-01-10 18:35  eliels
+
+	* main/cli.c, main/locust.c: Now we are able to run commands passed
+	  as parameters to the application and
+	  run more than once separated by ; like:
+	  ./locust -e "help ; host show"
+	  We can use the same parameter separator while using the console.
+
+2009-01-10 17:52  eliels
+
+	* main/locust.c: Start accepting shell parameters.
+
+2009-01-10 17:29  eliels
+
+	* Makefile.am: Add a message saying that you can run 'make install'
+	  to complete the process.
+
+2009-01-10 17:26  eliels
+
+	* include/locust.h, include/locust/autoconfig.h.in: Avoid some
+	  compile warnings.
+
+2009-01-10 17:24  eliels
+
+	* main/cli.c, main/locust.c: Make the prompt show the username and
+	  hostname from where we are running.
+
+2009-01-10 16:44  eliels
+
+	* main/cli.c: Remove trailing white spaces
+
+2009-01-10 16:44  eliels
+
+	* main/locust.c: Put my name at the beginning of Locust.
+
+2009-01-10 16:29  eliels
+
+	* configure.ac, include/locust/compat.h, main/cli.c: Actually
+	  implement lct_strdupa instead of using the "standard" one.
+
+2009-01-10 16:27  eliels
+
+	* bootstrap: Fix a typo.
+
+2009-01-10 04:46  eliels
+
+	* Makefile.am: Show a nice message after compiling locust.
+
+2009-01-10 04:40  eliels
+
+	* ChangeLog: ups... we need this.
+
+2009-01-10 04:35  eliels
+
+	* ChangeLog: Remove the ChangeLog from the subversion repository it
+	  is needed only on releases.
+
+2009-01-10 04:30  eliels
+
+	* README: Initial readme file :) we need to complete this.
+
+2009-01-10 04:28  eliels
+
+	* configure.ac, include/locust/autoconfig.h.in,
+	  include/locust/compat.h: Implement a strdupa() variant to use
+	  when it is not defined.
+
+2009-01-10 04:16  eliels
+
+	* main/full_scan.c, modules/scanners/full_scan.c: This file is now
+	  implemented as a module, there was a mistake in the commit that
+	  this file
+	  was steal thear.
+
+2009-01-10 04:13  eliels
+
+	* main/full_scan.c, main/loader.c, main/socket.c: Fix some doxygen
+	  warnings.
+
+2009-01-10 04:13  eliels
+
+	* DoxyFile: Include internal documentation in the report.
+
+2009-01-10 04:09  eliels
+
+	* DoxyFile: Set some properties to show current revision inside the
+	  documentation.
+
+2009-01-10 04:08  eliels
+
+	* include/locust/socket.h: Typo in parameter name (inside the
+	  doxygen documentation).
+
+2009-01-10 04:03  eliels
+
+	* main/socket.c: Add more doxygen documentation.
+
+2009-01-10 03:49  eliels
+
+	* main/cli.c: Insert more doxygen documentation to the CLI
+	  subsystem and check for
+	  memory allocation errors.
+
+2009-01-10 03:16  eliels
+
+	* Makefile.modules, configure.ac: Fix a compile error (different
+	  parameters to the linker) when compiling
+	  the locust modules.
+
+2009-01-10 00:08  eliels
+
+	* bootstrap: autoconf dir was removed.
+
+2009-01-10 00:03  eliels
+
+	* autoconf, configure.ac, include/locust/autoconfig.h.in, libs,
+	  libs/libedit, libs/libedit/COPYING, libs/libedit/ChangeLog,
+	  libs/libedit/INSTALL, libs/libedit/Makefile.am,
+	  libs/libedit/Makefile.in, libs/libedit/THANKS,
+	  libs/libedit/acinclude.m4, libs/libedit/aclocal.m4,
+	  libs/libedit/config.guess, libs/libedit/config.h.in,
+	  libs/libedit/config.sub, libs/libedit/configure,
+	  libs/libedit/configure.ac, libs/libedit/depcomp,
+	  libs/libedit/doc, libs/libedit/doc/Makefile.am,
+	  libs/libedit/doc/Makefile.in, libs/libedit/doc/editline.3.roff,
+	  libs/libedit/doc/editrc.5.roff, libs/libedit/doc/mdoc2man.awk,
+	  libs/libedit/examples, libs/libedit/examples/Makefile.am,
+	  libs/libedit/examples/Makefile.in,
+	  libs/libedit/examples/fileman.c, libs/libedit/examples/test.c,
+	  libs/libedit/install-sh, libs/libedit/libedit.pc.in,
+	  libs/libedit/ltmain.sh, libs/libedit/missing,
+	  libs/libedit/patches, libs/libedit/patches/00-vis.h.patch,
+	  libs/libedit/patches/01-term.c.patch,
+	  libs/libedit/patches/02-el_term.h.patch,
+	  libs/libedit/patches/03-unvis.c.patch,
+	  libs/libedit/patches/04-strlcpy.c.patch,
+	  libs/libedit/patches/05-strlcat.c.patch,
+	  libs/libedit/patches/06-readline.c.patch,
+	  libs/libedit/patches/07-sys.h.patch,
+	  libs/libedit/patches/08-el.h.patch,
+	  libs/libedit/patches/09-search.c.patch,
+	  libs/libedit/patches/10-readline.h.patch,
+	  libs/libedit/patches/11-el.c.patch,
+	  libs/libedit/patches/12-history.c.patch,
+	  libs/libedit/patches/13-vis.c.patch,
+	  libs/libedit/patches/14-fgetln.c.patch,
+	  libs/libedit/patches/15-filecomplete.c.patch,
+	  libs/libedit/patches/16-tc1.c.patch,
+	  libs/libedit/patches/17-editline.3.roff.patch,
+	  libs/libedit/patches/18-editrc.5.roff.patch,
+	  libs/libedit/patches/README, libs/libedit/patches/cvs_export.sh,
+	  libs/libedit/patches/extra_dist_list.sh,
+	  libs/libedit/patches/patches_apply.sh,
+	  libs/libedit/patches/patches_check.sh,
+	  libs/libedit/patches/patches_make.sh,
+	  libs/libedit/patches/timestamp.cvsexport,
+	  libs/libedit/patches/update_dist.sh,
+	  libs/libedit/patches/update_version.sh, libs/libedit/src,
+	  libs/libedit/src/Makefile.am, libs/libedit/src/Makefile.in,
+	  libs/libedit/src/chared.c, libs/libedit/src/chared.h,
+	  libs/libedit/src/common.c, libs/libedit/src/editline,
+	  libs/libedit/src/editline/readline.h, libs/libedit/src/el.c,
+	  libs/libedit/src/el.h, libs/libedit/src/el_term.h,
+	  libs/libedit/src/emacs.c, libs/libedit/src/fgetln.c,
+	  libs/libedit/src/filecomplete.c, libs/libedit/src/filecomplete.h,
+	  libs/libedit/src/hist.c, libs/libedit/src/hist.h,
+	  libs/libedit/src/histedit.h, libs/libedit/src/history.c,
+	  libs/libedit/src/key.c, libs/libedit/src/key.h,
+	  libs/libedit/src/makelist, libs/libedit/src/map.c,
+	  libs/libedit/src/map.h, libs/libedit/src/parse.c,
+	  libs/libedit/src/parse.h, libs/libedit/src/prompt.c,
+	  libs/libedit/src/prompt.h, libs/libedit/src/read.c,
+	  libs/libedit/src/read.h, libs/libedit/src/readline.c,
+	  libs/libedit/src/refresh.c, libs/libedit/src/refresh.h,
+	  libs/libedit/src/search.c, libs/libedit/src/search.h,
+	  libs/libedit/src/shlib_version, libs/libedit/src/sig.c,
+	  libs/libedit/src/sig.h, libs/libedit/src/strlcat.c,
+	  libs/libedit/src/strlcpy.c, libs/libedit/src/sys.h,
+	  libs/libedit/src/term.c, libs/libedit/src/tokenizer.c,
+	  libs/libedit/src/tty.c, libs/libedit/src/tty.h,
+	  libs/libedit/src/unvis.c, libs/libedit/src/vi.c,
+	  libs/libedit/src/vis.c, libs/libedit/src/vis.h, main/Makefile.am,
+	  main/cli.c: Include libedit inside the source (for some reason
+	  the distributed libedit-dev is bogus).
+	  Add saving the history inside .locust_history and loading it when
+	  running locust.
+
+2009-01-09 14:58  eliels
+
+	* Makefile.am, Makefile.modules, configure.ac,
+	  include/locust/_private.h, include/locust/loader.h,
+	  main/Makefile.am, main/loader.c, main/locust.c, modules/exploits,
+	  modules/scanners, modules/scanners/Makefile.am,
+	  modules/scanners/full_scan.c: Implement module loading and
+	  unloading mechanism.
+
+2009-01-09 12:31  eliels
+
+	* main/socket.c: Fix a core dump because the hostid is not optional
+	  in 'host show ports' CLI command.
+
+2009-01-09 12:19  eliels
+
+	* main/socket.c: Implement CLI command 'host show ports' to show
+	  the known ports status for a
+	  specified hostid
+
+2009-01-09 11:55  eliels
+
+	* main/full_scan.c, main/scanner.c: Implement the 'scan thread
+	  full' to use threads for the port scanner.
+
+2009-01-09 10:38  eliels
+
+	* include/locust/_private.h, main/full_scan.c, main/locust.c,
+	  main/scanner.c: Move the 'scan full' CLI command implementation
+	  to full_scan.c
+
+2009-01-09 02:57  eliels
+
+	* main/socket.c: Allow to pass a timeout < 0 to lct_accept() to
+	  make it block until a connection is accepted.
+
+2009-01-09 02:54  eliels
+
+	* include/locust/socket.h, main/socket.c, main/tcp.c: Make
+	  lct_accept() a non-blocking function and pass a timeout
+	  parameter.
+
+2009-01-09 01:44  eliels
+
+	* include/locust/socket.h, include/locust/tcp.h,
+	  include/locust/udp.h: Add missing functions to the headers and
+	  avoid compilation warnings! (ups...)
+
+2009-01-09 01:40  eliels
+
+	* main/socket.c, main/tcp.c, main/udp.c: Add command 'udp close'.
+	  Move command 'tcp disconnect' to 'tcp close'.
+
+2009-01-09 00:42  eliels
+
+	* main/scanner.c, main/socket.c, main/udp.c: Fix some warnings that
+	  appear while compiling in darwin (mac osx)
+
+2009-01-08 22:57  gborgoni@voicemedia.com.ar
+
+	* main/udp.c: - It is not neccesary to specify a port when trying
+	  to bind to it usin'udp bind'
+	  let the OS select one for us.
+
+2009-01-08 22:53  eliels
+
+	* include/locust/_private.h, include/locust/scanner.h: ups..
+	  missing files for the scanner functionality.
+
+2009-01-08 22:49  eliels
+
+	* main/Makefile.am, main/full_scan.c, main/locust.c,
+	  main/scanner.c, main/socket.c, main/tcp.c: Implement the scanner
+	  functionality and the CLI command 'scan full'.
+
+2009-01-08 19:29  eliels
+
+	* include/locust/port.h: Missing file in the repository.
+
+2009-01-08 18:38  eliels
+
+	* include/locust/socket.h, main/full_scan.c, main/socket.c,
+	  main/tcp.c: - Add the possibility to start reporting port status
+	  for every host that we connect to, or
+	  we scan ports.
+	  - Fix some issues related to hostname handling.
+	  - Add a preview of the full scanner (TCP full connect scanner).
+
+2009-01-07 20:21  eliels
+
+	* main/tcp.c, main/udp.c: Set socket status.
+
+2009-01-07 19:53  eliels
+
+	* include/locust/socket.h, main/socket.c, main/tcp.c: Grab accepted
+	  connections sockets so we can close them when releasing the
+	  socket.
+
+2009-01-07 18:58  gborgoni@voicemedia.com.ar
+
+	* main/tcp.c: Clean up cli messages
+
+2009-01-07 18:52  eliels
+
+	* main/locust.c: Implement the 'version' CLI command.
+
+2009-01-07 18:41  eliels
+
+	* include/locust/_private.h, include/locust/cli.h,
+	  include/locust/compat.h, include/locust/netutils.h,
+	  include/locust/socket.h, include/locust/string.h,
+	  include/locust/tcp.h, include/locust/udp.h: Add useful comments
+	  before things get complicated...
+
+2009-01-07 18:39  gborgoni@voicemedia.com.ar
+
+	* include/locust/udp.h: Missing header file
+
+2009-01-07 18:32  eliels
+
+	* include/locust/host.h, include/locust/socket.h, main/Makefile.am,
+	  main/host.c, main/locust.c, main/socket.c, main/tcp.c,
+	  main/udp.c: Move host.c to socket.c and host.h to socket.h (makes
+	  more sense)
+
+2009-01-07 18:22  gborgoni@voicemedia.com.ar
+
+	* AUTHORS, include/locust/_private.h, include/locust/cli.h,
+	  include/locust/host.h, include/locust/tcp.h, main/Makefile.am,
+	  main/host.c, main/locust.c, main/tcp.c, main/udp.c: Implement
+	  binding functions for UDP
+	  Fixed TCP binding
+
+2009-01-07 15:36  eliels
+
+	* main/tcp.c: - Fix an architectural issue when releasing a socket.
+
+2009-01-07 15:30  eliels
+
+	* include/locust.h, include/locust/host.h, main/host.c, main/tcp.c:
+	  Fix some locking problems when using sockets.
+
+2009-01-07 12:34  eliels
+
+	* main/locust.c: Fix a problem while printing the welcome message
+	  after creating the console thread.
+
+2009-01-07 12:32  eliels
+
+	* include/locust/host.h, main/host.c, main/tcp.c: Opaque host to
+	  other parts of Locust, only specific parts of the core will know
+	  a host entity exists.
+
+2009-01-06 22:29  eliels
+
+	* bootstrap: Make bootstrap support BSD.
+
+2009-01-06 21:34  eliels
+
+	* configure.ac, include/locust.h, main/Makefile.am, main/host.c,
+	  main/tcp.c: - Fix some compile warning in darwin (mac osx).
+	  - Add more Doxygen documentation
+
+2009-01-06 17:37  eliels
+
+	* include/locust/cli.h, main/cli.c, main/host.c, main/tcp.c:
+	  Simplify the CLI commands return value name.
+
+2009-01-06 17:12  eliels
+
+	* include/locust.h: Fix a warning message including netutils in the
+	  main locust header file.
+
+2009-01-06 17:10  eliels
+
+	* include/locust/netutils.h, main/Makefile.am, main/netutils.c,
+	  main/tcp.c: Start creating reusable code with netutils.c
+
+2009-01-06 16:54  eliels
+
+	* main/tcp.c: Fix a core dump when tryng to release a non-existent
+	  host.
+
+2009-01-06 16:47  eliels
+
+	* include/locust/cli.h, main/cli.c, main/host.c, main/tcp.c:
+	  Standarize the return value of CLI commands.
+
+2009-01-06 16:17  eliels
+
+	* include/locust/cli.h, main/cli.c, main/host.c, main/tcp.c: Now
+	  pass 'summary' and 'syntax' when registering a CLI command.
+
+2009-01-06 15:59  eliels
+
+	* include/locust/cli.h, main/tcp.c: Complete the 'tcp bind' CLI
+	  command to receive ONE connection and print every received string
+	  to the CLI.
+
+2009-01-06 14:50  eliels
+
+	* include/locust/host.h, include/locust/tcp.h, main/host.c,
+	  main/tcp.c: Make lct_tcp_simple_connect abstract the host entity.
+
+2009-01-06 14:10  eliels
+
+	* include/locust.h, include/locust/host.h, main/Makefile.am,
+	  main/cli.c, main/host.c, main/loader.c, main/locust.c,
+	  main/tcp.c: Make lct_socket_create handle ALL the socket creation
+	  mechanism.
+	  Add compile option -Wall and fix all the code warnings.
+	  Move the code to use the new lct_socket_create implementation.
+
+2009-01-06 12:24  eliels
+
+	* main/cli.c, main/host.c: Improve the output style of the 'help'
+	  and 'host show' CLI commands.
+
+2009-01-06 12:06  eliels
+
+	* include/locust/tcp.h, main/tcp.c: Now you can pass to
+	  lct_tcp_simple_connect the socket thread owner to be executed if
+	  we
+	  are able to connect. If NULL is passed instead of the function
+	  pointer, then no owner is
+	  assigned.
+
+2009-01-06 12:04  eliels
+
+	* main/host.c: Fix a typo on the lock/unlock logic.
+
+2009-01-06 11:46  eliels
+
+	* DoxyFile, Makefile.am, include/locust/cli.h,
+	  include/locust/string.h: Setup Doxygen configuration.
+	  Add a make target 'devdocs' to generate the Doxygen docs.
+
+2009-01-06 11:18  eliels
+
+	* include/locust/_private.h, include/locust/host.h, main/host.c,
+	  main/tcp.c: More Doxygen documentation.
+	  Add two enums (socket protocol and socket status).
+
+2009-01-06 10:45  eliels
+
+	* include/locust/host.h, include/locust/tcp.h, main/host.c,
+	  main/tcp.c: Complete rework of lct_connection, we move this code
+	  to lct_socket, cause, not every socket is a connection already.
+	  Also renamed every lct_connection to lct_socket.
+
+2009-01-06 03:14  gborgoni@voicemedia.com.ar
+
+	* main/tcp.c: - Added function to Bind a TCP port
+
+2009-01-06 00:54  eliels
+
+	* main/cli.c: Remove dead code.
+
+2009-01-06 00:41  eliels
+
+	* main/tcp.c: - Set some log messages to DEBUG instead of ERROR.
+
+2009-01-05 22:27  eliels
+
+	* main/tcp.c: - Move "tcp simple connect" to "tcp connect"
+	  - Move "tcp simple disconnect" to "tcp disconnect"
+
+2009-01-05 22:25  eliels
+
+	* Makefile.am: Avoid compiling modules that right now doesnt exist.
+
+2009-01-05 22:19  eliels
+
+	* include/locust.h, include/locust/tcp.h, main/cli.c, main/host.c,
+	  main/locust.c, main/tcp.c: - Simple connect now supports a
+	  timeout parameter.
+	  - Add an option [timeout] parameter to "tcp simple connect" CLI
+	  command.
+	  - Fix a deadlock in lct_host_release.
+
+2009-01-05 21:48  gborgoni@voicemedia.com.ar
+
+	* main/Makefile.am: - Fix compilation issue.
+	  - Order source files in columns for a better svn tracking.
+
+2009-01-05 20:14  eliels
+
+	* include/locust/_private.h, include/locust/cli.h, main/cli.c,
+	  main/host.c, main/locust.c, main/tcp.c: - Fix the history of the
+	  console.
+	  - Add more locking mechanisms to prevent race conditions when
+	  registering and unregistering the CLI commands.
+	  - Change the way we are passing the arguments to a CLI command.
+
+2009-01-05 14:45  eliels
+
+	* include/locust.h, include/locust/host.h, main/Makefile.am,
+	  main/cli.c, main/host.c, main/tcp.c: - Setup a thread owner for
+	  each connection.
+	  - Complete the 'tcp simple connect' and 'tcp simple disconnect'
+	  CLI commands.
+
+2009-01-05 10:42  eliels
+
+	* include/locust/host.h, main/host.c, main/tcp.c: Name struct
+	  connection as the used convention starting with lct_*.
+
+2009-01-05 10:37  eliels
+
+	* configure.ac, main/Makefile.am: Set Macro __OS__ when compiling
+	  locust.
+
+2009-01-05 02:38  eliels
+
+	* build_scripts, build_scripts/gen_version_h, main/Makefile.am,
+	  main/locust.c, main/version.c: - Add the version.h generator to
+	  know the Locust version.
+	  - Add a simple welcome message to the console.
+	  - Remove message displaying that the logger was initialized
+	  correctly.
+
+2009-01-05 00:46  eliels
+
+	* main/host.c: Missing lock's while changing the refcounter on a
+	  host.
+
+2009-01-05 00:43  eliels
+
+	* include/locust/_private.h, include/locust/host.h, main/cli.c,
+	  main/host.c, main/locust.c, main/logger.c, main/tcp.c: - Setup
+	  the mutexes needed by hosts and connections.
+	  - Make CLI command 'tcp simple connect <hostname> <port>' receive
+	  the two parameters.
+	  - Set an initialization function for the host subsystem.
+
+2009-01-04 23:12  eliels
+
+	* include/locust.h, include/locust/cli.h, main/cli.c,
+	  main/locust.c, main/tcp.c: Pass command arguments separated in a
+	  *argv[] structure with the argc parameter also.
+
+2009-01-04 22:00  eliels
+
+	* configure.ac: Not needed LT_INIT
+
+2009-01-04 21:44  eliels
+
+	* Makefile.modules, include/locust.h, main/Makefile.am,
+	  main/loader.c, main/locust.c: Module loader initial version (this
+	  is not working right now).
+
+2009-01-04 20:24  eliels
+
+	* Makefile.am, bin, bin/modules, configure.ac, main/Makefile.am,
+	  modules, modules/exploits, modules/exploits/remote,
+	  modules/exploits/remote/Makefile.am,
+	  modules/exploits/remote/testmodule.c: Start compiling shared
+	  objects, and make locust install in "srctopdir"/bin and modules
+	  in "srctopdir"/bin/modules
+
+2009-01-04 19:41  eliels
+
+	* include/locust/_private.h, main/cli.c: Fix a compilation warning.
+
+2009-01-04 19:07  eliels
+
+	* main/cli.c: - Free Editline structure when closing the console.
+
+2009-01-04 18:59  eliels
+
+	* include/locust/_private.h, include/locust/logger.h, main/cli.c,
+	  main/locust.c, main/logger.c: - Modify the logger functionality
+	  (no more "current level"), pass the level to the handler.
+	  - Make 'exit' show in the console.
+	  - Fix some issues while getting the command from the console.
+
+2009-01-04 18:43  eliels
+
+	* configure.ac, include/locust.h, include/locust/_private.h,
+	  include/locust/autoconfig.h.in, main/cli.c, main/locust.c: Make
+	  the CLI console run in a thread.
+
+2009-01-04 18:22  eliels
+
+	* main/cli.c: Change the error message if the command is not found.
+
+2009-01-04 18:13  eliels
+
+	* configure.ac, include/locust/autoconfig.h.in, main/Makefile,
+	  main/Makefile.am, main/Makefile.in: Check for libedit inside the
+	  configure script.
+	  Remove files autogenerated from the repository.
+
+2009-01-04 18:01  eliels
+
+	* main/compat.c: Module with all the needed functions for
+	  compatibility
+
+2009-01-04 17:56  eliels
+
+	* include/locust/autoconfig.h: We dont need to commit this
+	  automatically generated header file.
+
+2009-01-04 17:49  eliels
+
+	* configure.ac, include/locust.h, include/locust/autoconfig.h,
+	  include/locust/autoconfig.h.in, include/locust/compat.h,
+	  main/Makefile, main/Makefile.am, main/Makefile.in, main/cli.c,
+	  main/host.c, main/locust.c, main/logger.c, main/string.c,
+	  main/tcp.c: Fix all the compile warnings.
+
+2009-01-04 14:48  eliels
+
+	* include/locust/_private.h, include/locust/cli.h,
+	  include/locust/string.h: Missing files in the repository.
+	  Fix issue #2
+
+2009-01-04 07:26  eliels
+
+	* include/locust/host.h, include/locust/tcp.h, main/cli.c,
+	  main/host.c, main/locust.c, main/tcp.c: More CLI commands for
+	  testing the interface.
+
+2009-01-04 05:38  eliels
+
+	* include/locust/autoconfig.h, include/locust/autoconfig.h.in,
+	  main/Makefile, main/Makefile.am, main/Makefile.in, main/cli.c,
+	  main/locust.c, main/string.c: Command line interface mockup.
+
+2009-01-03 16:30  eliels
+
+	* autoconf, autoconf/acx_pthread.m4: Extra autoconf Macros
+
+2009-01-03 05:30  eliels
+
+	* include/locust.h, include/locust/host.h, include/locust/logger.h,
+	  include/locust/tcp.h, main/host.c, main/locust.c, main/logger.c,
+	  main/tcp.c: More Doxygen documentation.
+
+2009-01-03 05:16  eliels
+
+	* include/locust.h, include/locust/host.h, include/locust/logger.h,
+	  include/locust/tcp.h, main/Makefile, main/Makefile.am,
+	  main/Makefile.in, main/host.c, main/locust.c, main/logger.c,
+	  main/tcp.c: Basic "host" entity structure and simple tcp API.
+
+2009-01-02 19:26  eliels
+
+	* main/logger.c: More documentation.
+
+2009-01-02 19:23  eliels
+
+	* include/locust/logger.h, main/logger.c: Missing lct_logger_init
+	  declaration and more Doxygen documentation.
+
+2009-01-02 19:13  eliels
+
+	* include/locust.h, include/locust/logger.h, main/locust.c,
+	  main/logger.c, main/tcp.c: Set Copyright GPL v2 legends.
+
+2009-01-02 18:58  eliels
+
+	* include/locust/stamp-h1, main/.deps, main/locust: Ups, do not
+	  commit binarys or compile time files.
+
+2009-01-02 18:57  eliels
+
+	* AUTHORS, COPYING, ChangeLog, INSTALL, Makefile.am, NEWS, README,
+	  bootstrap, configure.ac, doc, include, include/locust,
+	  include/locust.h, include/locust/autoconfig.h,
+	  include/locust/autoconfig.h.in, include/locust/logger.h,
+	  include/locust/stamp-h1, main, main/.deps, main/.deps/locust.Po,
+	  main/.deps/logger.Po, main/.deps/tcp.Po, main/.deps/test.Po,
+	  main/Makefile, main/Makefile.am, main/Makefile.in, main/locust,
+	  main/locust.c, main/logger.c, main/tcp.c: Locust initial version
+
+2009-01-02 18:53  
+
+	* .: Initial directory structure.
+

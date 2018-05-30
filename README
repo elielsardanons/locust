@@ -1,0 +1,32 @@
+-={ LOCUST }=-
+
+The Open Source network security framework.
+
+== FEATURES ==
+
+* Bind to an UDP port (using and not using threads).
+* Bind to a TCP port (using and not using threads).
+* Send an UDP message to a specified host and port.
+* TCP Scan using connect() (using and not using threads).
+* UDP Scan using a "connected" udp socket (root priviliges not needed).
+* Connect to a TCP port in a specified hostname.
+* Support for different wordlist drivers.
+* Packet forging and injection support.
+* IPv4 and IPv6 support.
+* Supports sniffing.
+
+== TODO ==
+
+* Implement lct_read a read implementation with timeout.
+* CLI commands to manage modules.
+* Implement the low level TCP and UDP message handling functions.
+* Support SSH.
+* Support FTP.
+* SYN Scan.
+* FIN Scan.
+* Based on OS fingerprints, find the OS running in a machine.
+
+== JANITORS ==
+
+* Find common code, and implement functions or macros to simplify it.
+

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -f ${1}/.version ]; then
+        LOCUSTVERSION=`cat ${1}/.version`
+elif [ -d ${1}/.svn ]; then
+	REV=`svn info ${1} | grep 'Last Changed Rev' | cut -d' ' -f 4`
+	LOCUSTVERSION=SVN-r${REV}
+else
+	LOCUSTVERSION=unknown
+fi
+
+echo ${LOCUSTVERSION}

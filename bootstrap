@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Function to check if an application is installed with an specific version.
+check_app() {
+	$1 --version 2>&1 > /dev/null
+
+	if [ $? != 0 ]; then
+		echo "You need toinstall $1 before running bootstrap.sh"
+		exit 1
+	fi
+}
+
+uname -s | grep -q BSD
+if [ $? = 0 ] ; then
+	# BSD
+	AC_VER=-2.61
+	AM_VER=-1.9
+else
+	# linux
+	export AUTOCONF_VERSION=2.60
+	export AUTOMAKE_VERSION=1.9
+	AC_VER=
+	AM_VER=
+fi
+
+check_app aclocal${AM_VER}
+check_app autoconf${AC_VER}
+check_app autoheader${AC_VER}
+check_app automake${AM_VER}
+
+echo "Generating the configure script..."
+
+aclocal${AM_VER}
+autoconf${AC_VER}
+autoheader${AC_VER}
+automake${AM_VER} --add-missing --copy 2> /dev/null
+rm -rf autom4te*.cache
+
+exit 0
