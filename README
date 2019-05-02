@@ -26,7 +26,3 @@ The Open Source network security framework.
 * FIN Scan.
 * Based on OS fingerprints, find the OS running in a machine.
 
-== JANITORS ==
-
-* Find common code, and implement functions or macros to simplify it.
-
