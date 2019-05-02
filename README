@@ -8,6 +8,7 @@ The Open Source network security framework.
 * Bind to a TCP port (using and not using threads).
 * Send an UDP message to a specified host and port.
 * TCP Scan using connect() (using and not using threads).
+* SYN Scan.
 * UDP Scan using a "connected" udp socket (root priviliges not needed).
 * Connect to a TCP port in a specified hostname.
 * Support for different wordlist drivers.
@@ -22,7 +23,6 @@ The Open Source network security framework.
 * Implement the low level TCP and UDP message handling functions.
 * Support SSH.
 * Support FTP.
-* SYN Scan.
 * FIN Scan.
 * Based on OS fingerprints, find the OS running in a machine.
 
